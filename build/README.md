@@ -55,7 +55,7 @@ And you can simply launch `grunt taskname`
 
 ## Debugging JavaScript with source maps
 
-If you have installed concrete5 in a sub-directory and you want to debug JavaScript with SourceMaps, you should update the `Gruntfile.js` file, changing the following line:
+If you have installed concrete5 in a sub-directory and you want to debug JavaScript with SourceMaps, you should update the `gulpfile.js` file, changing the following line:
 `config.DIR_REL = '';`
 For instance, if your concrete5 installation is at http://www.domain.com/c5subfolder, you should change it to:
 `config.DIR_REL = '/c5subfolder';`
