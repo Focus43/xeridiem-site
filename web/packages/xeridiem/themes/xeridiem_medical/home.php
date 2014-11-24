@@ -8,23 +8,31 @@
         <?php Loader::packageElement('theme/header', XeridiemPackage::PACKAGE_HANDLE); ?>
 
         <section id="masthead">
-            <img src="<?php echo XERIDIEM_IMAGE_PATH; ?>masthead.jpg" />
+            <?php
+            $a = new Area('Masthead'); /* @var $a Area */ //$a->setAreaGridMaximumColumns(12);
+            $a->setBlockLimit(1);
+            $a->display($c);
+            ?>
         </section>
 
         <main>
             <div class="container-fluid">
                 <div id="triple-columns" class="row padless-grid">
                     <div class="col-sm-4 background-green">
-                        <?php
-                        $a = new Area('Main 1'); /* @var $a Area */ //$a->setAreaGridMaximumColumns(12);
-                        $a->display($c);
-                        ?>
+                        <div class="inner">
+                            <?php
+                            $a = new Area('Main 1'); /* @var $a Area */ //$a->setAreaGridMaximumColumns(12);
+                            $a->display($c);
+                            ?>
+                        </div>
                     </div>
                     <div class="col-sm-4 background-blue">
-                        <?php
-                        $a = new Area('Main 2'); /* @var $a Area */
-                        $a->display($c);
-                        ?>
+                        <div class="inner">
+                            <?php
+                            $a = new Area('Main 2'); /* @var $a Area */
+                            $a->display($c);
+                            ?>
+                        </div>
                     </div>
                     <div class="col-sm-4 background-red">
                         <?php
@@ -33,27 +41,37 @@
                         ?>
                     </div>
                 </div>
+            </div>
+            <div class="container">
                 <div id="middle-section" class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <?php
                         $a = new Area('Main 4'); /* @var $a Area */
                         $a->display($c);
                         ?>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-6">
                         <?php
                         $a = new Area('Main 5'); /* @var $a Area */
                         $a->display($c);
                         ?>
                     </div>
                 </div>
+            </div>
+            <div class="container-fluid">
                 <div class="row padless-grid">
-                            <div class="col-sm-12">
-                        <div class="parallax">
+                    <div class="col-sm-12">
+                        <div class="parallax tabular">
                             <div class="layer backdrop"></div>
+                            <div class="cellular">
+                                <div class="inner">
+                                    <p>Lean Manufacturing Outsourcing</p>
+                                    <a class="btn btn-danger btn-lg">Get A Quote <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                            </div>
                             <?php
-                            $a = new Area('Main 6'); /* @var $a Area */
-                            $a->display($c);
+                            //$a = new Area('Main 6'); /* @var $a Area */
+                            //$a->display($c);
                             ?>
                         </div>
                     </div>

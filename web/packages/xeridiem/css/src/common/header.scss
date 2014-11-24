@@ -1,18 +1,25 @@
-header {color:$header-font-color;min-height:$header-height;position:relative;background-color:$header-background-color;
+header {color:$header-font-color;min-height:$header-height;position:relative;background:$header-background-color url('#{$image-path}header_gradient.png') no-repeat 0 0;z-index:2;
 
   .container {height:$header-height;}
 
   .menu-content {position:relative;}
 
   .links {text-align:right;position:relative;top:3rem;
-    a {color:#fff;}
+    a, .socials, .phone, .langs {display:inline-block;}
+    .email, .phone {color:#fff;margin:0 1.5rem;
+      i {font-size:1.3em;position:relative;top:2px;left:-4px;}
+    }
+    .socials {margin:0 1.5rem;
+      a {width:23px;height:23px;background:#fff;color:#000;margin:0 2px;text-align:center;}
+    }
+    .langs {margin:0 1.5rem;background:#fff;color:#000;height:23px;font-weight:bold;padding:0 0.5rem;}
   }
 
   nav {position:absolute;right:0;bottom:0;
     a {color:#fff;}
 
     .primary {margin:0;font-size:0;line-height:0;
-      > li {display:inline-block;font-size:1.5rem;line-height:1;text-transform:uppercase;position:relative;
+      > li {display:inline-block;font-size:1.3rem;font-weight:bold;line-height:1;text-transform:uppercase;position:relative;
         a {display:block;padding:1rem 2rem;border-bottom:4px solid #fff;}
         &:nth-of-type(1) a {border-bottom-color:$theme-green;}
         &:nth-of-type(2) a {border-bottom-color:$theme-blue;}
@@ -21,7 +28,7 @@ header {color:$header-font-color;min-height:$header-height;position:relative;bac
       }
     }
 
-    .sub {margin-top:-20px;visibility:hidden;opacity:0;line-height:1.4em;font-size:1rem;position:absolute;top:100%;left:50%;min-width:260px;background:$header-background-color;@include transition(all 0.18s ease);@include transform(translate3d(-50%, 0, 0));
+    .sub {margin-top:-20px;visibility:hidden;opacity:0;line-height:1.4em;font-weight:normal;font-size:1rem;position:absolute;top:100%;left:50%;min-width:260px;background:$header-background-color;text-transform:none;@include transition(all 0.18s ease);@include transform(translate3d(-50%, 0, 0));
       li {padding:0 1.6rem;
         &:hover {background:rgba(255,255,255,0.1);}
         a {border-bottom-width:2px;}

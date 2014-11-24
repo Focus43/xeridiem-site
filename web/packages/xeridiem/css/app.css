@@ -1,5 +1,5 @@
 html, body {
-  font-size: 14px;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased; }
 
 a, a:hover, a:active {
@@ -10,6 +10,9 @@ img {
   display: inline-block;
   max-width: 100%;
   height: auto; }
+
+h1:nth-child(1), h2:nth-child(1), h3:nth-child(1) {
+  margin-top: 0; }
 
 .tabular {
   display: table;
@@ -25,11 +28,19 @@ img {
 .fullheight {
   height: 100%; }
 
+iframe[src*="youtube"] {
+  width: 100%;
+  max-width: 100% !important; }
+
+.padless-grid [class*="col-"] {
+  padding: 0; }
+
 #page-body header {
   color: #fff;
   min-height: 135px;
   position: relative;
-  background-color: #102542; }
+  background: #102542 url("/packages/xeridiem/images/header_gradient.png") no-repeat 0 0;
+  z-index: 2; }
   #page-body header .container {
     height: 135px; }
   #page-body header .menu-content {
@@ -38,8 +49,32 @@ img {
     text-align: right;
     position: relative;
     top: 3rem; }
-    #page-body header .links a {
-      color: #fff; }
+    #page-body header .links a, #page-body header .links .socials, #page-body header .links .phone, #page-body header .links .langs {
+      display: inline-block; }
+    #page-body header .links .email, #page-body header .links .phone {
+      color: #fff;
+      margin: 0 1.5rem; }
+      #page-body header .links .email i, #page-body header .links .phone i {
+        font-size: 1.3em;
+        position: relative;
+        top: 2px;
+        left: -4px; }
+    #page-body header .links .socials {
+      margin: 0 1.5rem; }
+      #page-body header .links .socials a {
+        width: 23px;
+        height: 23px;
+        background: #fff;
+        color: #000;
+        margin: 0 2px;
+        text-align: center; }
+    #page-body header .links .langs {
+      margin: 0 1.5rem;
+      background: #fff;
+      color: #000;
+      height: 23px;
+      font-weight: bold;
+      padding: 0 0.5rem; }
   #page-body header nav {
     position: absolute;
     right: 0;
@@ -52,7 +87,8 @@ img {
       line-height: 0; }
       #page-body header nav .primary > li {
         display: inline-block;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        font-weight: bold;
         line-height: 1;
         text-transform: uppercase;
         position: relative; }
@@ -73,12 +109,14 @@ img {
       visibility: hidden;
       opacity: 0;
       line-height: 1.4em;
+      font-weight: normal;
       font-size: 1rem;
       position: absolute;
       top: 100%;
       left: 50%;
       min-width: 260px;
       background: #102542;
+      text-transform: none;
       -webkit-transition: all 0.18s ease;
       -o-transition: all 0.18s ease;
       transition: all 0.18s ease;
@@ -107,12 +145,24 @@ img {
     background: #005696; }
   #page-body main .background-red {
     background: #ee3124; }
-  #page-body main .padless-grid [class*="col-"] {
-    padding: 0; }
   #page-body main #triple-columns [class*="col-"],
-  #page-body main #middle-section {
-    padding-top: 1rem;
-    padding-bottom: 1rem; }
+  #page-body main #middle-section [class*="col-"] {
+    padding-top: 2rem;
+    padding-bottom: 2rem; }
+  #page-body main #triple-columns .inner {
+    color: #fff;
+    position: relative;
+    right: -1rem;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0 1rem; }
+    #page-body main #triple-columns .inner h2 {
+      font-weight: bold; }
+    #page-body main #triple-columns .inner .iconic {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      max-width: 50px; }
   #page-body main .parallax {
     position: relative;
     height: 300px;
@@ -127,19 +177,57 @@ img {
       background: transparent no-repeat 50% 50%;
       background-size: cover;
       z-index: -1; }
-    #page-body main .parallax .ccm-area {
-      height: 100%; }
+    #page-body main .parallax .inner {
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      position: relative;
+      top: 11px; }
+      #page-body main .parallax .inner p {
+        color: #fff;
+        margin: 0;
+        font-size: 2.6rem;
+        display: inline;
+        line-height: 1; }
+      #page-body main .parallax .inner .btn {
+        padding: 1rem;
+        position: relative;
+        top: -7px;
+        margin-left: 30px; }
   #page-body main .parallax .backdrop {
     background-image: url("/packages/xeridiem/images/factory_bg.jpg"); }
 #page-body footer {
   background: #07132b;
   color: #fff; }
   #page-body footer .columns {
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem; }
+    #page-body footer .columns .inner {
+      padding: 1rem;
+      border-top: 4px solid transparent; }
+      #page-body footer .columns .inner.border-green {
+        border-top-color: #419644; }
+      #page-body footer .columns .inner.border-blue {
+        border-top-color: #005696; }
+      #page-body footer .columns .inner.border-purple {
+        border-top-color: #701471; }
+      #page-body footer .columns .inner.border-red {
+        border-top-color: #ee3124; }
   #page-body footer .bottom {
+    font-size: 13px;
     background: #005696;
     padding: 1rem 0; }
+    #page-body footer .bottom .quick-links {
+      text-align: right; }
+      #page-body footer .bottom .quick-links .list-unstyled {
+        margin: 0;
+        display: inline-block; }
+        #page-body footer .bottom .quick-links .list-unstyled li {
+          display: inline-block;
+          padding: 0 3px; }
+          #page-body footer .bottom .quick-links .list-unstyled li:hover {
+            border-bottom: 1px solid #fff; }
+        #page-body footer .bottom .quick-links .list-unstyled a {
+          color: #fff; }
   #page-body footer p:last-of-type {
     margin-bottom: 0; }
 

@@ -4,16 +4,22 @@
             <div class="col-sm-4 fullheight">
                 <div class="tabular">
                     <div class="cellular">
-                        <img src="<?php echo XERIDIEM_IMAGE_PATH; ?>logo_white.png" />
+                        <img src="<?php echo XERIDIEM_IMAGE_PATH; ?>logos/full_white.png" />
                     </div>
                 </div>
             </div>
             <div class="col-sm-8 fullheight menu-content">
                 <div class="row links">
                     <div class="col-sm-12">
-                        <a><i class="fa fa-envelope"></i> info@xeridiem.com</a>
-                        <a><i class="fa fa-phone"></i> info@xeridiem.com</a>
-
+                        <a class="email"><i class="fa fa-envelope"></i> info@xeridiem.com</a>
+                        <a class="phone"><i class="fa fa-phone"></i> +1-520-882-7794</a>
+                        <div class="socials">
+                            <a><i class="fa fa-facebook"></i></a>
+                            <a><i class="fa fa-twitter"></i></a>
+                            <a><i class="fa fa-youtube-play"></i></a>
+                            <a><i class="fa fa-linkedin"></i></a>
+                        </div>
+                        <a class="langs">ENG <i class="fa fa-angle-down"></i></a>
                     </div>
                 </div>
 

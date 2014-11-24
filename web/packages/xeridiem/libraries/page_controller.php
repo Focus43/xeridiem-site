@@ -48,7 +48,7 @@
          */
         public function attachThemeAssets( Controller $pageController ){
             // CSS
-            $pageController->addHeaderItem('<link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Rokkitt:400,700|Roboto+Slab:400,100,300|Sanchez:400italic,400|Enriqueta:400,700|Nothing+You+Could+Do" rel="stylesheet" type="text/css">');
+            $pageController->addHeaderItem('<link href="http://fonts.googleapis.com/css?family=Titillium+Web:200,200italic,400,700,400italic,700italic" rel="stylesheet" type="text/css">');
             $pageController->addHeaderItem( $this->getHelper('html')->css('core.css', XeridiemPackage::PACKAGE_HANDLE) );
             $pageController->addHeaderItem( $this->getHelper('html')->css('app.css', XeridiemPackage::PACKAGE_HANDLE) );
             // JS

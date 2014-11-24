@@ -8,6 +8,16 @@ $theme-green:                   #419644;
 $theme-blue:                    #005696;
 $theme-purple:                  #701471;
 $theme-red:                     #ee3124;
+// Bootstrap
+$font-family-sans-serif:        'Titillium Web', sans-serif;
+$font-family-base:              $font-family-sans-serif;
+$font-size-base:                16px;
+$border-radius-base:            0;
+$border-radius-large:           0;
+$border-radius-small:           0;
+// buttons
+$btn-danger-bg:                 $theme-red;
+$btn-danger-border:             $theme-red;
 
 
 //$magenta:                       #c7254e;
