@@ -35,10 +35,12 @@
                         </div>
                     </div>
                     <div class="col-sm-4 background-red">
-                        <?php
-                        $a = new Area('Main 3'); /* @var $a Area */
-                        $a->display($c);
-                        ?>
+                        <div class="inner">
+                            <?php
+                            $a = new Area('Main 3'); /* @var $a Area */
+                            $a->display($c);
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
