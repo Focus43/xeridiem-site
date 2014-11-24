@@ -8,7 +8,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    color: #fff; }
+    color: #fff;
+    background-size: cover; }
     .flexry-masthead .node .container {
       text-align: left; }
       .flexry-masthead .node .container h2 {
