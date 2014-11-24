@@ -11,9 +11,13 @@ $imageList  = $fileListObj->getPage();
         <div class="node" style="background-image:url('<?php echo $flexryFile->fullImgSrc(); ?>');">
             <div class="tabular">
                 <div class="cellular">
-                    <div class="content">
-                        <h2><?php echo $flexryFile->getTitle(); ?></h2>
-                        <p><?php echo $flexryFile->getDescription(); ?></p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2><?php echo $flexryFile->getTitle(); ?></h2>
+                                <p><?php echo $flexryFile->getDescription(); ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
