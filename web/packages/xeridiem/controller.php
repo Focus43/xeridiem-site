@@ -6,7 +6,7 @@
 
 	    protected $pkgHandle 			= self::PACKAGE_HANDLE;
 	    protected $appVersionRequired 	= '5.6.2.1';
-	    protected $pkgVersion 			= '0.01';
+	    protected $pkgVersion 			= '0.06';
 	
 		
 		/**
@@ -97,7 +97,8 @@
 		 */
 		private function installAndUpdate(){
 			$this->runUpgradeTasks( $this->pkgVersion )
-				 ->setupUserAttributes()
+                 ->setupAttributeTypes()
+				 ->setupFileAttributes()
 				 ->setupTheme()
 				 ->setupPageTypes()
                  ->assignPageTypes()
@@ -135,18 +136,37 @@
         }
 
 
+        /**
+         * @return XeridiemPackage
+         */
+        private function setupAttributeTypes(){
+            $atPageSelector = AttributeType::getByHandle('page_selector');
+            if( !($atPageSelector instanceof AttributeType) ){
+                AttributeType::add('page_selector', t('Page Selector'), $this->packageObject());
+                $this->attributeKeyCategory('file')->associateAttributeKeyType( $this->attributeType('page_selector') );
+            }
+
+            return $this;
+        }
+
+
 		/**
 		 * @return XeridiemPackage
 		 */
-		private function setupUserAttributes(){
-//			if( !(is_object(UserAttributeKey::getByHandle('full_name'))) ){
-//				UserAttributeKey::add($this->attributeType('text'), array(
-//					'akHandle'					=> 'full_name',
-//					'akName'					=> t('Full Name'),
-//					'uakRegisterEdit'			=> 1,
-//					'uakRegisterEditRequired' 	=> 0
-//				), $this->packageObject());
-//			}
+		private function setupFileAttributes(){
+			if( !(is_object(FileAttributeKey::getByHandle('button_text'))) ){
+                FileAttributeKey::add($this->attributeType('text'), array(
+                    'akHandle'					=> 'button_text',
+                    'akName'					=> t('Button Text')
+                ), $this->packageObject());
+            }
+
+            if( !(is_object(FileAttributeKey::getByHandle('link'))) ){
+                FileAttributeKey::add($this->attributeType('page_selector'), array(
+                    'akHandle'					=> 'link',
+                    'akName'					=> t('Page Link')
+                ), $this->packageObject());
+            }
 			
 			return $this;
 		}

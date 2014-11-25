@@ -40,7 +40,9 @@ iframe[src*="youtube"] {
   min-height: 135px;
   position: relative;
   background: #102542 url("/packages/xeridiem/images/header_gradient.png") no-repeat 0 0;
-  z-index: 2; }
+  z-index: 2;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
   #page-body header .container {
     height: 135px; }
   #page-body header .menu-content {

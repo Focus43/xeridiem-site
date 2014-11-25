@@ -1,4 +1,4 @@
-header {color:$header-font-color;min-height:$header-height;position:relative;background:$header-background-color url('#{$image-path}header_gradient.png') no-repeat 0 0;z-index:2;
+header {color:$header-font-color;min-height:$header-height;position:relative;background:$header-background-color url('#{$image-path}header_gradient.png') no-repeat 0 0;z-index:2;@include box-shadow(0 0 10px rgba(0,0,0,0.5));
 
   .container {height:$header-height;}
 

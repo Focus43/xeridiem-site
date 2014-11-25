@@ -9,7 +9,7 @@
 
         <section id="masthead">
             <?php
-            $a = new Area('Masthead'); /* @var $a Area */ //$a->setAreaGridMaximumColumns(12);
+            $a = new Area('Masthead'); /* @var $a Area */
             $a->setBlockLimit(1);
             $a->display($c);
             ?>
@@ -21,7 +21,7 @@
                     <div class="col-sm-4 background-green">
                         <div class="inner">
                             <?php
-                            $a = new Area('Main 1'); /* @var $a Area */ //$a->setAreaGridMaximumColumns(12);
+                            $a = new Area('Main 1'); /* @var $a Area */
                             $a->display($c);
                             ?>
                         </div>
