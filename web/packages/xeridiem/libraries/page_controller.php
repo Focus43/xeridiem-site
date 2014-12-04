@@ -49,6 +49,8 @@
          * @return void
          */
         public function attachThemeAssets( Controller $pageController ){
+            // Google Translate
+            $pageController->addHeaderItem('<meta name="google-translate-customization" content="a255e74df2c21dd0-bea35df3c8a1613a-ge87fa1e052319e1a-c" />');
             // CSS
             $pageController->addHeaderItem('<link href="http://fonts.googleapis.com/css?family=Titillium+Web:200,200italic,400,700,400italic,700italic" rel="stylesheet" type="text/css">');
             $pageController->addHeaderItem( $this->getHelper('html')->css('core.css', XeridiemPackage::PACKAGE_HANDLE) );

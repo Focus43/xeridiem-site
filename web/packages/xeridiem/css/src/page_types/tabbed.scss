@@ -1,0 +1,13 @@
+.pg-tabbed #page-body {
+  main {
+    .content-tabs {
+      button p {display:inline;margin:0;padding:0;}
+    }
+
+    .content-tab-nodes {
+      .node {display:none;
+        &:first-of-type {display:block;}
+      }
+    }
+  }
+}

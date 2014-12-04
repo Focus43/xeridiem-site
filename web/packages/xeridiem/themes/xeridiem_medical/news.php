@@ -37,15 +37,6 @@
                 </div>
             </div>
 
-            <div id="section-3" class="flexgrid">
-                <div class="flex-col-4 flex-justify-start background-dark-blue">
-                    <div class="column-pad pad-2x"><?php $a = new Area('Main 4'); $a->display($c); ?></div>
-                </div>
-                <div class="flex-col-8">
-                    <?php $a = new Area('Main 5'); $a->display($c); ?>
-                </div>
-            </div>
-
         </main>
         <?php Loader::packageElement('theme/footer', XeridiemPackage::PACKAGE_HANDLE); ?>
     </div>

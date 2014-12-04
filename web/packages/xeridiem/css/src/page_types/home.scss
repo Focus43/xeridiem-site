@@ -2,14 +2,22 @@
   #masthead {}
 
   main {
-    #triple-columns, #middle-section {
-      [class*="col-"]{padding-top:2rem;padding-bottom:2rem;}
+    #triple-columns {
+      .column-pad {padding:2rem;
+        .inner {position:relative;padding-left:65px;margin:0 auto;max-width:380px;}
+        h2 {font-weight:bold;}
+        .iconic {position:absolute;left:0;top:1rem;max-width:50px;@include transform(translate3d(0,-50%,0));}
+      }
     }
 
-    #triple-columns .column-pad {color:#fff;right:-2rem;max-width:320px;
-      h2 {font-weight:bold;}
-      //p {margin-bottom:0;}
-      .iconic {position:absolute;top:0.5rem;right:100%;max-width:50px;}
-    }
+//    #triple-columns, #middle-section {
+//      [class*="col-"]{padding-top:2rem;padding-bottom:2rem;}
+//    }
+//
+//    #triple-columns .column-pad {color:#fff;right:-2rem;max-width:320px;
+//      h2 {font-weight:bold;}
+//      //p {margin-bottom:0;}
+//      .iconic {position:absolute;top:0.5rem;right:100%;max-width:50px;}
+//    }
   }
 }

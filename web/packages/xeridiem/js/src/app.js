@@ -29,4 +29,11 @@
         })( window.pageYOffset );
     }
 
+    // Content tabs (if applicable)
+    $('button', '.content-tabs').on('click', function(){
+        var $li = $(this).parent('li'),
+            idx = $li.index();
+        $('.node', '.content-tab-nodes').hide().filter(':eq('+idx+')').show();
+    });
+
 })();

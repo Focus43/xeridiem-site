@@ -6,7 +6,7 @@
 
 	    protected $pkgHandle 			= self::PACKAGE_HANDLE;
 	    protected $appVersionRequired 	= '5.6.2.1';
-	    protected $pkgVersion 			= '0.07';
+	    protected $pkgVersion 			= '0.09';
 	
 		
 		/**
@@ -201,8 +201,12 @@
 	            CollectionType::add(array('ctHandle' => 'default', 'ctName' => 'Default'), $this->packageObject());
 	        }
 
-            if( !is_object($this->pageType('grid')) ){
-                CollectionType::add(array('ctHandle' => 'grid', 'ctName' => 'Grid'), $this->packageObject());
+            if( !is_object($this->pageType('tabbed')) ){
+                CollectionType::add(array('ctHandle' => 'tabbed', 'ctName' => 'Tabbed'), $this->packageObject());
+            }
+
+            if( !is_object($this->pageType('news')) ){
+                CollectionType::add(array('ctHandle' => 'news', 'ctName' => 'News'), $this->packageObject());
             }
 
             return $this;

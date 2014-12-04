@@ -1,11 +1,12 @@
 footer {background:$theme-dark-blue;color:#fff;
   .columns {padding-top:1rem;padding-bottom:2rem;
-    .inner {padding:1rem;border-top:4px solid transparent;
+    .inner {padding:1rem;border-top:4px solid transparent;background:transparent;@include transition(background 0.25s ease);
       &.border-green {border-top-color:$theme-green;}
       &.border-blue {border-top-color:$theme-blue;}
       &.border-purple {border-top-color:$theme-purple;}
       &.border-red {border-top-color:$theme-red;}
       h5 {margin-top:0;text-transform:uppercase;font-weight:bold;}
+      &:hover {background:rgba(255,255,255,0.05);}
     }
   }
   .bottom {font-size:13px;background:#005696;padding:1rem 0;
@@ -19,4 +20,9 @@ footer {background:$theme-dark-blue;color:#fff;
     }
   }
   p:last-of-type {margin-bottom:0;}
+
+  .recent-news {display:block;color:#fff;
+    span {display:block;padding-bottom:0.675rem;}
+    small {color:$theme-red;text-transform:uppercase;font-weight:bold;}
+  }
 }

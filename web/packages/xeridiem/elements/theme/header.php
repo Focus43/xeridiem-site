@@ -10,18 +10,28 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 col-lg-8 fullheight menu-content">
-                <div class="row links">
+            <div class="col-sm-9 col-lg-8 fullheight">
+                <div class="row tertiary">
                     <div class="col-sm-12">
-                        <a class="email inlined"><i class="fa fa-envelope"></i> info@xeridiem.com</a>
-                        <a class="phone inlined"><i class="fa fa-phone"></i> +1-520-882-7794</a>
-                        <div class="socials inlined">
-                            <a><i class="fa fa-facebook"></i></a>
-                            <a><i class="fa fa-twitter"></i></a>
-                            <a><i class="fa fa-youtube-play"></i></a>
-                            <a><i class="fa fa-linkedin"></i></a>
-                        </div>
-                        <a class="langs inlined">ENG <i class="fa fa-angle-down"></i></a>
+                        <ul class="list-inline">
+                            <li><a class="email"><i class="fa fa-envelope"></i> info@xeridiem.com</a></li>
+                            <li><a class="phone"><i class="fa fa-phone"></i> +1-520-882-7794</a></li>
+                            <li>
+                                <a class="sociable"><i class="fa fa-facebook"></i></a>
+                                <a class="sociable"><i class="fa fa-twitter"></i></a>
+                                <a class="sociable"><i class="fa fa-youtube-play"></i></a>
+                                <a class="sociable"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                                    }
+                                </script>
+                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 

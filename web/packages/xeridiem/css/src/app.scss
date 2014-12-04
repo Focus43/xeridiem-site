@@ -54,6 +54,13 @@ h1,h2,h3 {
     h1,h2,h3,h4,p {margin:0;font-size:400%;}
   }
 
+  // See blocks/file/templates/file_icon.php
+  .file-icon-link {color:inherit;display:inline-block;padding:0.675rem;text-align:center;background:$gray-lighter;@include transition(background 0.5s ease);
+    img {display:inline-block;margin:0 auto;}
+    span {display:block;font-size:0.9rem;}
+    &:hover {background:darken($gray-lighter, 8%);}
+  }
+
   @import "common/header";
   @import "common/main";
   @import "common/footer";
@@ -62,6 +69,11 @@ h1,h2,h3 {
 // specific page types
 @import 'page_types/home';
 @import 'page_types/default';
+@import 'page_types/tabbed';
+@import 'common/shared';
 
 // CMS Edit mode
-.cms-editing {}
+.cms-editing {
+  // Google translate injects these settings on the body; override that mess
+  body {position:static !important;min-height:0 !important;top:auto !important;}
+}

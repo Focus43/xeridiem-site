@@ -11,9 +11,17 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="inner border-blue">
+                    <h5>Recent News</h5>
                     <?php
-                    $a = new GlobalArea('Footer 2'); /* @var $a Area */
-                    $a->display($c);
+                    $blockTypeNav = BlockType::getByHandle('page_list');
+                    $blockTypeNav->controller->num                  = 1;
+                    $blockTypeNav->controller->ctID                 = CollectionType::getByHandle('news')->getCollectionTypeID();
+                    $blockTypeNav->controller->cParentID            = 0;
+                    $blockTypeNav->controller->orderBy              = 'chrono_desc';
+                    $blockTypeNav->controller->rss                  = 0;
+                    $blockTypeNav->controller->truncateSummaries    = 1;
+                    $blockTypeNav->controller->truncateChars        = 128;
+                    $blockTypeNav->render('templates/footer');
                     ?>
                 </div>
             </div>
@@ -32,10 +40,6 @@
                     <a class="btn btn-default"><i class="fa fa-twitter"></i></a>
                     <a class="btn btn-default"><i class="fa fa-youtube-play"></i></a>
                     <a class="btn btn-default"><i class="fa fa-linkedin"></i></a>
-                    <?php
-                    //$a = new GlobalArea('Footer 4'); /* @var $a Area */
-                    //$a->display($c);
-                    ?>
                 </div>
             </div>
         </div>

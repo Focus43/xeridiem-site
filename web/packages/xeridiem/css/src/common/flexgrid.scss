@@ -6,6 +6,7 @@
 ********************************************************************************/
 .flexgrid {
   @include flex(1 1 100%);
+  @include flex-basis(initial);
   @include align-content(center);
   @include align-items(stretch);
   @include flexbox((display:box,box-orient:horizontal), $version: 1);
@@ -23,6 +24,11 @@
       //width:percentage($i / $grid-columns);
     }
   }
+
+  // Overrides for content positioning (ie. class="flex-col-4 flex-justify-initial ...")
+  .flex-justify-start {@include justify-content(flex-start);}
+  .flex-justify-end {@include justify-content(flex-end);}
+  .flex-justify-initial {@include justify-content(initial);}
 }
 
 // See packages/xeridiem/models/layout.php override!

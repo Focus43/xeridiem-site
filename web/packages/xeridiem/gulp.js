@@ -123,6 +123,25 @@ module.exports = function( gulp ){
         return flexryJsMasthead(_packagePath('blocks/flexry_gallery/templates/masthead/src/view.js'), 'view.js', true);
     });
 
+    /**
+     * Grouped tasks (by environment target)
+     */
+    gulp.task('build:dev', ['sass:core:dev', 'sass:app:dev', 'js:core:dev', 'js:app:dev'], function(){
+        utils.log(utils.colors.bgGreen('Dev build OK'));
+    });
+
+    gulp.task('build:prod', ['sass:core:prod', 'sass:app:prod', 'js:core:prod', 'js:app:prod'], function(){
+        utils.log(utils.colors.bgGreen('Prod build OK'));
+    });
+
+    gulp.task('build:blocks:dev', ['flexry:sass:masthead:dev', 'flexry:js:masthead:dev'], function(){
+        utils.log(utils.colors.bgGreen('Blocks built'));
+    });
+
+    gulp.task('build:blocks:prod', ['flexry:sass:masthead:prod', 'flexry:js:masthead:prod'], function(){
+        utils.log(utils.colors.bgGreen('Blocks built'));
+    });
+
     /* THEME TYPOGRAPHY */
     gulp.task('sass:theme', function(){
         return gulp.src(_packagePath('themes/xeridiem_medical/typography.scss'))
@@ -132,17 +151,6 @@ module.exports = function( gulp ){
                 this.emit('end');
             })
             .pipe(gulp.dest(_packagePath('themes/xeridiem_medical/')));
-    });
-
-    /**
-     * Grouped tasks (by environment target)
-     */
-    gulp.task('build:dev', ['sass:core:dev', 'sass:app:dev', 'js:core:dev', 'js:app:dev', 'flexry:sass:masthead:dev', 'flexry:js:masthead:dev'], function(){
-        utils.log(utils.colors.bgGreen('Dev build OK'));
-    });
-
-    gulp.task('build:prod', ['sass:core:prod', 'sass:app:prod', 'js:core:prod', 'js:app:prod', 'flexry:sass:masthead:prod', 'flexry:js:masthead:prod'], function(){
-        utils.log(utils.colors.bgGreen('Prod build OK'));
     });
 
 

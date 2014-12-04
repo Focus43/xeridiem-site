@@ -17,7 +17,22 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
-                                        <?php $a = new Area('Main 1'); $a->display($c); ?>
+                                        <ul class="content-tabs list-inline">
+                                            <li><button type="button" class="btn btn-hollow-green"><?php $a = new Area('Tab 1'); $a->setBlockLimit(1); $a->display($c); ?></button></li>
+                                            <li><button type="button" class="btn btn-hollow-green"><?php $a = new Area('Tab 2'); $a->setBlockLimit(1); $a->display($c); ?></button></li>
+                                            <li><button type="button" class="btn btn-hollow-green"><?php $a = new Area('Tab 3'); $a->setBlockLimit(1); $a->display($c); ?></button></li>
+                                        </ul>
+                                        <div class="content-tab-nodes">
+                                            <div class="node">
+                                                <?php $a = new Area('Tab 1 Content'); $a->display($c); ?>
+                                            </div>
+                                            <div class="node">
+                                                <?php $a = new Area('Tab 2 Content'); $a->display($c); ?>
+                                            </div>
+                                            <div class="node">
+                                                <?php $a = new Area('Tab 3 Content'); $a->display($c); ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
