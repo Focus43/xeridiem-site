@@ -1,10 +1,11 @@
-footer {background:#07132b;color:#fff;
+footer {background:$theme-dark-blue;color:#fff;
   .columns {padding-top:1rem;padding-bottom:2rem;
     .inner {padding:1rem;border-top:4px solid transparent;
       &.border-green {border-top-color:$theme-green;}
       &.border-blue {border-top-color:$theme-blue;}
       &.border-purple {border-top-color:$theme-purple;}
       &.border-red {border-top-color:$theme-red;}
+      h5 {margin-top:0;text-transform:uppercase;font-weight:bold;}
     }
   }
   .bottom {font-size:13px;background:#005696;padding:1rem 0;

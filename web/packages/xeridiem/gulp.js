@@ -123,6 +123,17 @@ module.exports = function( gulp ){
         return flexryJsMasthead(_packagePath('blocks/flexry_gallery/templates/masthead/src/view.js'), 'view.js', true);
     });
 
+    /* THEME TYPOGRAPHY */
+    gulp.task('sass:theme', function(){
+        return gulp.src(_packagePath('themes/xeridiem_medical/typography.scss'))
+            .pipe(sass({compass:true, style:('nested')}))
+            .on('error', function( err ){
+                utils.log(utils.colors.red(err.toString()));
+                this.emit('end');
+            })
+            .pipe(gulp.dest(_packagePath('themes/xeridiem_medical/')));
+    });
+
     /**
      * Grouped tasks (by environment target)
      */

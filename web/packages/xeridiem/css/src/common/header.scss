@@ -2,25 +2,27 @@ header {color:$header-font-color;min-height:$header-height;position:relative;bac
 
   .container {height:$header-height;}
 
+  .logo {display:block;}
+
   .menu-content {position:relative;}
 
   .links {text-align:right;position:relative;top:3rem;
-    a, .socials, .phone, .langs {display:inline-block;}
-    .email, .phone {color:#fff;margin:0 1.5rem;
+    .inlined {display:inline-block;margin:0 8px;}
+    .email, .phone {color:#fff;
       i {font-size:1.3em;position:relative;top:2px;left:-4px;}
     }
-    .socials {margin:0 1.5rem;
-      a {width:23px;height:23px;background:#fff;color:#000;margin:0 2px;text-align:center;}
+    .socials {
+      a {display:inline-block;width:23px;height:23px;background:#fff;color:#000;margin:0 2px;text-align:center;}
     }
-    .langs {margin:0 1.5rem;background:#fff;color:#000;height:23px;font-weight:bold;padding:0 0.5rem;}
+    .langs {background:#fff;color:#000;height:23px;font-weight:bold;padding:0 0.5rem;}
   }
 
-  nav {position:absolute;right:0;bottom:0;
+  nav {position:absolute;right:($grid-gutter-width/2 + 8px);bottom:0;
     a {color:#fff;}
 
     .primary {margin:0;font-size:0;line-height:0;
       > li {display:inline-block;font-size:1.3rem;font-weight:bold;line-height:1;text-transform:uppercase;position:relative;
-        a {display:block;padding:1rem 2rem;border-bottom:4px solid #fff;}
+        a {display:block;padding:1rem;border-bottom:4px solid #fff;}
         &:nth-of-type(1) a {border-bottom-color:$theme-green;}
         &:nth-of-type(2) a {border-bottom-color:$theme-blue;}
         &:nth-of-type(3) a {border-bottom-color:$theme-purple;}
@@ -37,5 +39,24 @@ header {color:$header-font-color;min-height:$header-height;position:relative;bac
     }
 
     .primary > li:hover .sub {margin-top:0;visibility:visible;opacity:1;}
+  }
+}
+
+@media screen and (max-width:$screen-lg){
+  header .container {width:100%;}
+}
+
+@media screen and (min-width:$screen-md){
+  header {
+    .links .inlined {margin:0 1.3rem;}
+    nav {
+      .primary > li a {padding:1rem 2rem;}
+    }
+  }
+}
+
+@media screen and (max-width:($screen-sm + 60px)){
+  header {
+    .links, nav {display:none;}
   }
 }

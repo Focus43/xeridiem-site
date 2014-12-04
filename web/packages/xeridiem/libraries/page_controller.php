@@ -38,6 +38,8 @@
             if( $this->_canEdit ){ array_push($classes, 'cms-admin'); }
             if( $this->_isEditMode ){ array_push($classes, 'cms-editing'); }
             $this->set('cmsClasses', join(' ', $classes));
+
+            $this->set('templateHandle', sprintf('pg-%s', $this->getCollectionObject()->getCollectionTypeHandle()));
         }
 
 

@@ -27,9 +27,14 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="inner border-red">
+                    <h5>Social Media</h5>
+                    <a class="btn btn-default"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-default"><i class="fa fa-twitter"></i></a>
+                    <a class="btn btn-default"><i class="fa fa-youtube-play"></i></a>
+                    <a class="btn btn-default"><i class="fa fa-linkedin"></i></a>
                     <?php
-                    $a = new GlobalArea('Footer 4'); /* @var $a Area */
-                    $a->display($c);
+                    //$a = new GlobalArea('Footer 4'); /* @var $a Area */
+                    //$a->display($c);
                     ?>
                 </div>
             </div>

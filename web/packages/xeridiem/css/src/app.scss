@@ -1,33 +1,67 @@
 @import 'required';
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons';
+@import 'common/flexgrid';
 
 html, body {font-size:$font-size-base;-webkit-font-smoothing:antialiased;}
+*:active, *:focus {outline:none !important;}
 a, a:hover, a:active {text-decoration:none;cursor:pointer;}
 img {@include img-responsive(inline-block);}
 h1,h2,h3 {
   &:nth-child(1){margin-top:0;}
 }
-.tabular {display:table;width:100%;height:100%;
-  .cellular {display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;}
-}
-.fullheight {height:100%;}
-iframe[src*="youtube"]{width:100%;max-width:100% !important;}
 
-// Grid updates
-.padless-grid {
-  [class*="col-"]{padding:0;}
+// Bootstrap extensions
+.btn {text-transform:uppercase;border:1px solid #fff;-webkit-font-smoothing:inherit;
+  &:hover {border:1px solid #fff;}
+}
+.btn-red {@include button-variant(#fff, $theme-red, $theme-red);@extend .btn;@extend .btn-lg;position:relative;padding-right:2rem;font-size:1.6rem !important;
+  &::after {content:$fa-var-chevron-right;font-family:$font-family-font-awesome;font-size:22px;position:absolute;right:8px;top:50%;margin-top:-10px;line-height:1;}
+}
+.btn-hollow-green {@include button-variant($theme-green,transparent,$theme-green);
+  &:hover,&.active {background:$theme-green;color:#fff;border-color:$theme-green;}
 }
 
 #page-body {
+  // Vert/Horiz centerable
+  .tabular {display:table;width:100%;height:100%;
+    .cellular {display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;}
+  }
+
+  // Reusables
+  .fullheight {height:100%;}
+  .background-green {background:$theme-green;color:#fff;}
+  .background-blue {background:$theme-blue;color:#fff;}
+  .background-dark-blue {background:$theme-dark-blue;color:#fff;}
+  .background-red {background:$theme-red;color:#fff;}
+  .background-gray {background:darken($gray-lighter, 8%);color:inherit;}
+
+  // Responsive youtube embeds
+  iframe[src*="youtube"]{width:100%;max-width:100% !important;}
+
+  // Remove any spacing between grid layouts
+  .padless-grid {
+    [class*="col-"]{padding:0;}
+  }
+
+  // Column content padding
+  .column-pad {position:relative;margin:0 auto;padding:1rem;
+    &.pad-2x {padding:2rem;}
+    &:empty {padding:0;}
+  }
+
+  // Page header (content block template)
+  .page-masthead {height:300px;color:#fff;
+    h1,h2,h3,h4,p {margin:0;font-size:400%;}
+  }
+
   @import "common/header";
   @import "common/main";
   @import "common/footer";
-
-  // specific page types
-  @import 'page_types/home';
-  @import 'page_types/default';
 }
+
+// specific page types
+@import 'page_types/home';
+@import 'page_types/default';
 
 // CMS Edit mode
-.cms-editing {
-  //#masthead {padding:1rem;}
-}
+.cms-editing {}

@@ -1,24 +1,32 @@
+/* global Modernizr */
 (function(){
 
-    var cmsToolbarVisible   = document.documentElement.classList.contains('cms-admin'),
-        $parallaxBackdrops  = document.querySelectorAll('.parallax > .backdrop');
+    /** requestAnimationFrame shim - use native/prefixed first, backup to setTimeout */
+    window.requestAnimFrame = Modernizr.prefixed('requestAnimationFrame', window) || function(callback){
+        window.setTimeout(callback, 1000/ 60);
+    };
 
-    if( ! cmsToolbarVisible ){
-        console.log('Initializing Parallax');
+        /** @var bool c5Toolbar Is the user logged in? */
+    var c5Toolbar   = (document.documentElement.className.indexOf('cms-admin') !== -1),
+        /** @var nodeList parallaxers Any parallax elements on the page */
+        parallaxers = document.querySelectorAll('.parallax');
 
-        (function _draw( lastScrollLocation ){
-            // Has scroll position changed?
-            if( lastScrollLocation !== window.pageYOffset ){
-                lastScrollLocation = window.pageYOffset;
-                var scrollPercent = (window.pageYOffset / (document.body.clientHeight - window.innerHeight));
-                for(var i = 0; i < $parallaxBackdrops.length; i++){
-                    $parallaxBackdrops[i].style.top = '-' + (0.6 * scrollPercent) * 100 + '%';
+    /**
+     * If any parallax elements are present on the page, and user is not
+     * logged into the CMS, then init loop.
+     */
+    if( !c5Toolbar && parallaxers.length ){
+        (function _draw( lastScroll ){
+            if( lastScroll !== window.pageYOffset ){
+                lastScroll = window.pageYOffset;
+                var scrollPercent = 100 * (window.pageYOffset / (document.body.clientHeight - window.innerHeight));
+                scrollPercent = (scrollPercent > 100) ? 100 : scrollPercent;
+                for(var i = 0; i < parallaxers.length; i++){
+                    parallaxers[i].style.backgroundPosition = '50% ' + scrollPercent + '%';
                 }
             }
-            // Repeat the loop
-            requestAnimationFrame(_draw.bind(null, lastScrollLocation));
+            window.requestAnimFrame(_draw.bind(null, lastScroll));
         })( window.pageYOffset );
     }
-
 
 })();

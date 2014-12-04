@@ -6,7 +6,7 @@
 
 	    protected $pkgHandle 			= self::PACKAGE_HANDLE;
 	    protected $appVersionRequired 	= '5.6.2.1';
-	    protected $pkgVersion 			= '0.06';
+	    protected $pkgVersion 			= '0.07';
 	
 		
 		/**
@@ -37,6 +37,10 @@
 			Loader::registerAutoload(array(
 				'XeridiemPageController' => array('library', 'page_controller', $this->pkgHandle)
 			));
+
+            // Overload core Layout class
+            $objEnv = Environment::get();
+            $objEnv->overrideCoreByPackage('models/layout.php', $this);
 	    }
 		
 	
@@ -196,6 +200,10 @@
 			if( !is_object($this->pageType('default')) ){
 	            CollectionType::add(array('ctHandle' => 'default', 'ctName' => 'Default'), $this->packageObject());
 	        }
+
+            if( !is_object($this->pageType('grid')) ){
+                CollectionType::add(array('ctHandle' => 'grid', 'ctName' => 'Grid'), $this->packageObject());
+            }
 
             return $this;
 		}

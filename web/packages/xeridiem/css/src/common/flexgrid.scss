@@ -1,0 +1,76 @@
+/********************************************************************************
+* !! Supports old flexbox specs back to IE10 !!
+* @note: this is a purely mobile-first implementation; the .flexgrid class
+* defaults to being column-based first; then when the $screen-sm breakpoint is hit,
+* it'll go to rows.
+********************************************************************************/
+.flexgrid {
+  @include flex(1 1 100%);
+  @include align-content(center);
+  @include align-items(stretch);
+  @include flexbox((display:box,box-orient:horizontal), $version: 1);
+  @include flexbox((display:flexbox,flex-direction:column), $version: 2);
+  @include flexbox((display:flex,flex-direction:column));
+  $i: 1;
+  @for $i from 1 through $grid-columns {
+    $className: '.flex-col-#{$i}';
+    #{$className} {
+      @include justify-content(center);
+      @include flex($i 1 percentage($i / $grid-columns));
+      @include flexbox((display:box,box-orient:horizontal), $version: 1);
+      @include flexbox((display:flexbox,flex-direction:column), $version: 2);
+      @include flexbox((display:flex,flex-direction:column));
+      //width:percentage($i / $grid-columns);
+    }
+  }
+}
+
+// See packages/xeridiem/models/layout.php override!
+.flexgrid.ccm-layout-row {
+  .ccm-layout-cell {
+    @include justify-content(center);
+    @include flex(1 1 auto);
+    @include flexbox((display:box,box-orient:horizontal), $version: 1);
+    @include flexbox((display:flexbox,flex-direction:column), $version: 2);
+    @include flexbox((display:flex,flex-direction:column));
+  }
+  $i: 1;
+  @for $i from 1 through $grid-columns {
+    $className: '.flexgrid-columns-#{$i}';
+    &#{$className} .ccm-layout-cell{
+      @include flex($i 1 percentage($i / $grid-columns));
+    }
+  }
+}
+
+@media screen and (min-width:$screen-sm){
+  .flexgrid, .ccm-layout-row {
+    @include flexbox((display:box,box-orient:vertical), $version: 1);
+    @include flexbox((display:flexbox,flex-direction:row), $version: 2);
+    @include flexbox((display:flex,flex-direction:row));
+  }
+}
+
+/********************************************************
+* Latest flex spec support (v.3)
+*********************************************************/
+//.flexgrid {
+//  @include flex(1 0 100%);
+//  @include flex-wrap(wrap);
+//  @include display-flex;
+//  @include flex-direction(row);
+//  @include align-content(center);
+//  @include align-items(stretch);
+//
+//  $i: 1;
+//  $flex-column-name: '.flex-col';
+//  @for $i from 1 through $grid-columns {
+//    $className: '#{$flex-column-name}-#{$i}';
+//    #{$className} {
+//      @include flex($i 1 percentage($i / $grid-columns));
+//      @include display-flex;
+//      @include flex-direction(column);
+//      /*width:percentage($i / $grid-columns);*/
+//    }
+//  }
+//}
