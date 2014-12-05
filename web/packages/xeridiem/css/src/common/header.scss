@@ -1,6 +1,6 @@
 header {color:$header-font-color;position:relative;background:$header-background-color url('#{$image-path}header_gradient.png') no-repeat 0 0;z-index:2;@include box-shadow(0 0 10px rgba(0,0,0,0.5));z-index:9;
 
-  a {color:#fff;}
+  a, a:hover, a:active {color:#fff;}
 
   .nav-container {position:static;}
   .container {height:60px;}
