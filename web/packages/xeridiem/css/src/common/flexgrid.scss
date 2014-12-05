@@ -33,20 +33,20 @@
 
   // See packages/xeridiem/models/layout.php override!
   .flexgrid.ccm-layout-row {
-    .ccm-layout-cell {
-      @include justify-content(center);
-      @include flex(1 1 auto);
-      @include flexbox((display:box,box-orient:horizontal), $version: 1);
-      @include flexbox((display:flexbox,flex-direction:column), $version: 2);
-      @include flexbox((display:flex,flex-direction:column));
-    }
-    $i: 1;
-    @for $i from 1 through $grid-columns {
-      $className: '.flexgrid-columns-#{$i}';
-      &#{$className} .ccm-layout-cell{
-        @include flex($i 1 floor(percentage($i / $grid-columns)));
-      }
-    }
+//    .ccm-layout-cell {
+//      @include justify-content(center);
+//      @include flex(1 1 auto);
+//      @include flexbox((display:box,box-orient:horizontal), $version: 1);
+//      @include flexbox((display:flexbox,flex-direction:column), $version: 2);
+//      @include flexbox((display:flex,flex-direction:column));
+//    }
+//    $i: 1;
+//    @for $i from 1 through $grid-columns {
+//      $className: '.flexgrid-columns-#{$i}';
+//      &#{$className} .ccm-layout-cell{
+//        @include flex($i 1 floor(percentage($i / $grid-columns))-1);
+//      }
+//    }
   }
 
   @media screen and (min-width:$screen-sm){
@@ -54,6 +54,23 @@
       @include flexbox((display:box,box-orient:vertical), $version: 1);
       @include flexbox((display:flexbox,flex-direction:row), $version: 2);
       @include flexbox((display:flex,flex-direction:row));
+    }
+
+    .flexgrid.ccm-layout-row {
+      .ccm-layout-cell {
+        @include justify-content(center);
+        @include flex(1 1 auto);
+        @include flexbox((display:box,box-orient:horizontal), $version: 1);
+        @include flexbox((display:flexbox,flex-direction:column), $version: 2);
+        @include flexbox((display:flex,flex-direction:column));
+      }
+      $i: 1;
+      @for $i from 1 through $grid-columns {
+        $className: '.flexgrid-columns-#{$i}';
+        &#{$className} .ccm-layout-cell{
+          @include flex($i 1 floor(percentage($i / $grid-columns))-1);
+        }
+      }
     }
   }
 

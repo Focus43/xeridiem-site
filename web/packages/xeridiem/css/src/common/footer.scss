@@ -12,8 +12,8 @@ footer {background:$theme-dark-blue;color:#fff;
       .social-link {color:#000;}
     }
   }
-  .bottom {font-size:13px;background:#005696;padding:1rem 0;
-    .quick-links {text-align:right;
+  .bottom {font-size:13px;background:#005696;padding:1rem 0;text-align:center;
+    .quick-links {display:inline-block;
       .list-unstyled {margin:0;display:inline-block;
         li {display:inline-block;padding:0 3px;
           &:hover {border-bottom:1px solid #fff;}
@@ -22,10 +22,18 @@ footer {background:$theme-dark-blue;color:#fff;
       }
     }
   }
-  p:last-of-type {margin-bottom:0;}
 
   .recent-news {display:block;color:#fff;
     span {display:block;padding-bottom:0.675rem;}
     small {color:$theme-red;text-transform:uppercase;font-weight:bold;}
+  }
+}
+
+@media screen and (min-width:$screen-sm){
+  footer {
+    .bottom {text-align:inherit;
+      .quick-links {display:block;text-align:right;}
+    }
+    p:last-of-type {margin-bottom:0;}
   }
 }

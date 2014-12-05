@@ -21,64 +21,62 @@ h1,h2,h3 {
   &:hover,&.active {background:$theme-green;color:#fff;border-color:$theme-green;}
 }
 
-#page-body {
-  // Anything to nuke the margins
-  .marginless {margin:0;}
+// Anything to nuke the margins
+.marginless {margin:0;}
 
-  // Vert/Horiz centerable
-  .tabular {display:table;width:100%;height:100%;
-    .cellular {display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;
-      &.text-left {text-align:left;}
-      &.text-right {text-align:right;}
-    }
+// Vert/Horiz centerable
+.tabular {display:table;width:100%;height:100%;
+  .cellular {display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;
+    &.text-left {text-align:left;}
+    &.text-right {text-align:right;}
   }
-
-  // Reusables
-  .fullheight {height:100%;}
-  .background-green {background:$theme-green;color:#fff;}
-  .background-blue {background:$theme-blue;color:#fff;}
-  .background-dark-blue {background:$theme-dark-blue;color:#fff;}
-  .background-red {background:$theme-red;color:#fff;}
-  .background-gray {background:darken($gray-lighter, 8%);color:inherit;}
-
-  // Responsive youtube embeds
-  iframe[src*="youtube"]{width:100%;max-width:100% !important;}
-
-  // With the flex-grid stuff; 1px spacing frequently occurs; compensate for it with this
-  .container, .container-fluid {padding-left:($grid-gutter-width/2)-1px;padding-right:($grid-gutter-width/2)-1px;}
-  // Remove any spacing between grid layouts
-  .padless-grid {
-    [class*="col-"]{padding:0;}
-  }
-
-  // Column content padding
-  .column-pad {position:relative;margin:0 auto;padding:1rem;
-    &.pad-2x {padding:2rem;}
-    &:empty {padding:0;}
-  }
-
-  // Parallax
-  .parallax {color:#fff;padding:4rem 0;text-align:center;background-size:cover;background-position:50% 0%;
-    a,.btn {font-weight:normal;}
-    h1,h2,h3,h4,p {font-size:280%;}
-  }
-
-  // Page header (content block template)
-  .page-masthead {padding:1rem;color:#fff;
-    h1,h2,h3,h4,p {margin:0;font-size:400%;}
-  }
-
-  // See blocks/file/templates/file_icon.php
-  .file-icon-link {color:inherit;display:inline-block;padding:0.675rem;text-align:center;background:$gray-lighter;@include transition(background 0.5s ease);
-    img {display:inline-block;margin:0 auto;}
-    span {display:block;font-size:0.9rem;}
-    &:hover {background:darken($gray-lighter, 8%);}
-  }
-
-  @import "common/header";
-  @import "common/main";
-  @import "common/footer";
 }
+
+// Reusables
+.fullheight {height:100%;}
+.background-green {background:$theme-green;color:#fff;}
+.background-blue {background:$theme-blue;color:#fff;}
+.background-dark-blue {background:$theme-dark-blue;color:#fff;}
+.background-red {background:$theme-red;color:#fff;}
+.background-gray {background:darken($gray-lighter, 8%);color:inherit;}
+
+// Responsive youtube embeds
+iframe[src*="youtube"]{width:100%;max-width:100% !important;}
+
+// With the flex-grid stuff; 1px spacing frequently occurs; compensate for it with this
+.container, .container-fluid {padding-left:($grid-gutter-width/2)-1px;padding-right:($grid-gutter-width/2)-1px;}
+// Remove any spacing between grid layouts
+.padless-grid {
+  [class*="col-"]{padding:0;}
+}
+
+// Column content padding
+.column-pad {position:relative;margin:0 auto;padding:1rem;
+  &.pad-2x {padding:2rem;}
+  &:empty {padding:0;}
+}
+
+// Parallax
+.parallax {color:#fff;padding:4rem 0;text-align:center;background-size:cover;background-position:50% 0%;
+  a,.btn {font-weight:normal;}
+  h1,h2,h3,h4,p {font-size:280%;}
+}
+
+// Page header (content block template)
+.page-masthead {padding:1rem;color:#fff;
+  h1,h2,h3,h4,p {margin:0;font-size:400%;}
+}
+
+// See blocks/file/templates/file_icon.php
+.file-icon-link {color:inherit;display:inline-block;padding:0.675rem;text-align:center;background:$gray-lighter;@include transition(background 0.5s ease);
+  img {display:inline-block;margin:0 auto;}
+  span {display:block;font-size:0.9rem;}
+  &:hover {background:darken($gray-lighter, 8%);}
+}
+
+@import "common/header";
+@import "common/main";
+@import "common/footer";
 
 // specific page types
 @import 'page_types/home';
