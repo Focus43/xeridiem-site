@@ -1,5 +1,9 @@
 /* global Modernizr */
+/* global FastClick */
 (function(){
+
+    // Bind FastClick
+    FastClick.attach(document.body);
 
     /** requestAnimationFrame shim - use native/prefixed first, backup to setTimeout */
     window.requestAnimFrame = Modernizr.prefixed('requestAnimationFrame', window) || function(callback){
@@ -34,6 +38,10 @@
         var $li = $(this).parent('li'),
             idx = $li.index();
         $('.node', '.content-tab-nodes').hide().filter(':eq('+idx+')').show();
+    });
+
+    $('.nav-trigger', 'header').on('click', function(){
+        $('nav').toggleClass('active');
     });
 
 })();

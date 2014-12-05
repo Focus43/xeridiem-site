@@ -1,22 +1,24 @@
 <header>
     <div class="container">
         <div class="row fullheight">
-            <div class="col-sm-3 col-lg-4 fullheight">
+
+            <div class="col-xs-7 col-sm-3 col-lg-4 fullheight">
                 <div class="tabular">
-                    <div class="cellular">
+                    <div class="cellular text-left">
                         <a class="logo" href="/">
                             <img src="<?php echo XERIDIEM_IMAGE_PATH; ?>logos/full_white.png" />
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 col-lg-8 fullheight">
-                <div class="row tertiary">
+
+            <div class="col-xs-5 col-sm-9 col-lg-8 fullheight nav-container">
+                <div class="row tertiary hidden-xs">
                     <div class="col-sm-12">
                         <ul class="list-inline">
                             <li><a class="email"><i class="fa fa-envelope"></i> info@xeridiem.com</a></li>
                             <li><a class="phone"><i class="fa fa-phone"></i> +1-520-882-7794</a></li>
-                            <li>
+                            <li class="hidden-xs hidden-sm">
                                 <a class="sociable"><i class="fa fa-facebook"></i></a>
                                 <a class="sociable"><i class="fa fa-twitter"></i></a>
                                 <a class="sociable"><i class="fa fa-youtube-play"></i></a>
@@ -46,6 +48,10 @@
                     $blockTypeNav->render('templates/xeridiem_nav');
                     ?>
                 </nav>
+
+                <a class="nav-trigger visible-xs fullheight">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </div>
     </div>

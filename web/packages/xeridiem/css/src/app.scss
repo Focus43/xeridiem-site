@@ -2,7 +2,7 @@
 @import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons';
 @import 'common/flexgrid';
 
-html, body {font-size:$font-size-base;-webkit-font-smoothing:antialiased;}
+html, body {font-size:$font-size-base;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 *:active, *:focus {outline:none !important;}
 a, a:hover, a:active {text-decoration:none;cursor:pointer;}
 img {@include img-responsive(inline-block);}
@@ -22,9 +22,15 @@ h1,h2,h3 {
 }
 
 #page-body {
+  // Anything to nuke the margins
+  .marginless {margin:0;}
+
   // Vert/Horiz centerable
   .tabular {display:table;width:100%;height:100%;
-    .cellular {display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;}
+    .cellular {display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;
+      &.text-left {text-align:left;}
+      &.text-right {text-align:right;}
+    }
   }
 
   // Reusables
@@ -38,6 +44,8 @@ h1,h2,h3 {
   // Responsive youtube embeds
   iframe[src*="youtube"]{width:100%;max-width:100% !important;}
 
+  // With the flex-grid stuff; 1px spacing frequently occurs; compensate for it with this
+  .container, .container-fluid {padding-left:($grid-gutter-width/2)-1px;padding-right:($grid-gutter-width/2)-1px;}
   // Remove any spacing between grid layouts
   .padless-grid {
     [class*="col-"]{padding:0;}

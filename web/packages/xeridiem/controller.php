@@ -42,6 +42,16 @@
             $objEnv = Environment::get();
             $objEnv->overrideCoreByPackage('models/layout.php', $this);
 	    }
+
+
+        /**
+         * Pass in an area instance and this will set custom template properties on it.
+         * @param Area $a
+         * @return void
+         */
+        public static function setAreaDefaultTemplates( Area $a ){
+            $a->setCustomTemplate('image', 'default.php');
+        }
 		
 	
 		/**

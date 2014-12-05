@@ -1,73 +1,114 @@
-header {color:$header-font-color;min-height:$header-height;position:relative;background:$header-background-color url('#{$image-path}header_gradient.png') no-repeat 0 0;z-index:2;@include box-shadow(0 0 10px rgba(0,0,0,0.5));
+header {color:$header-font-color;position:relative;background:$header-background-color url('#{$image-path}header_gradient.png') no-repeat 0 0;z-index:2;@include box-shadow(0 0 10px rgba(0,0,0,0.5));z-index:9;
 
   a {color:#fff;}
 
-  .container {height:$header-height;
-    .fullheight {position:relative;}
-    .logo {display:block;}
-    .tertiary {padding-top:2.4rem;text-align:right;
-      .list-inline {position:relative;right:-($grid-gutter-width/2);
-        li {padding:0 ($grid-gutter-width/2);}
-        .sociable {color:#000;display:inline-block;min-height:20px;min-width:30px;background:#fff;padding:2px 8px;}
-        #google_translate_element, #google_translate_element * {display:inline-block;}
-        #google_translate_element {padding:2px;background:#fff;position:relative;font-family:$font-family-base;
-          .goog-te-gadget {width:65px;
-            &::before {font-size:14px;font-weight:100;color:#000;content:'Lang';display:inline-block;position:absolute;left:7px;top:3px;width:100%;height:100%;text-align:left;z-index:0;}
-            &::after {content:$fa-var-chevron-down;font-family:$font-family-font-awesome;font-size:15px;position:absolute;right:8px;top:4px;line-height:1;z-index:0;}
-          }
-          .goog-te-gadget-simple {border:0;background:transparent !important;padding:0;margin:0;position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;
-            * {visibility:hidden;}
-          }
-          .goog-te-menu-value * {display:none;}
-          // @note: might be legally required to include logo!
-          .goog-te-gadget-icon {position:absolute;left:100%;top:3px;opacity:0.5;display:none;}
+  .nav-container {position:static;}
+  .container {height:60px;}
+  .logo {display:block;padding:10px;
+    img {max-height:40px;}
+  }
+
+  .tertiary {padding-top:1.6rem;text-align:right;
+    .list-inline {display:inline-block;position:relative;margin:0;right:-12px;
+      li {padding:8px 12px;}
+      .sociable {color:#000;display:inline-block;min-height:20px;min-width:30px;background:#fff;padding:2px 8px;}
+      #google_translate_element, #google_translate_element * {display:inline-block;}
+      #google_translate_element {padding:2px;background:#fff;position:relative;font-family:$font-family-base;
+        .goog-te-gadget {width:65px;
+          &::before {font-size:14px;font-weight:100;color:#000;content:'Lang';display:inline-block;position:absolute;left:7px;top:3px;width:100%;height:100%;text-align:left;z-index:0;}
+          &::after {content:$fa-var-chevron-down;font-family:$font-family-font-awesome;font-size:15px;position:absolute;right:8px;top:4px;line-height:1;z-index:0;}
         }
+        .goog-te-gadget-simple {border:0;background:transparent !important;padding:0;margin:0;position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;
+          * {visibility:hidden;}
+        }
+        .goog-te-menu-value * {display:none;}
+        // @note: might be legally required to include logo!
+        .goog-te-gadget-icon {position:absolute;left:100%;top:3px;opacity:0.5;display:none;}
       }
     }
   }
 
-  nav {position:absolute;right:($grid-gutter-width/2);bottom:0;
-    .primary {margin:0;font-size:0;line-height:0;
-      > li {display:inline-block;font-size:1.3rem;font-weight:bold;line-height:1;text-transform:uppercase;position:relative;
-        a {display:block;padding:1rem;border-bottom:4px solid #fff;}
-        &:nth-of-type(1) a {border-bottom-color:$theme-green;}
-        &:nth-of-type(2) a {border-bottom-color:$theme-blue;}
-        &:nth-of-type(3) a {border-bottom-color:$theme-purple;}
-        &:nth-of-type(4) a {border-bottom-color:$theme-red;}
+  nav {position:absolute;top:150%;visibility:hidden;opacity:0;left:0;right:0;background:rgba($theme-dark-blue, 0.95);@include transition(all 0.25s ease);
+    .primary {margin:0;
+      > li {padding:8px 0;display:block;font-size:1.1rem;border-bottom:4px solid #fff;line-height:1;text-transform:uppercase;position:relative;
+        a {font-weight:bold;display:block;padding:8px ($grid-gutter-width/2);}
+        &:nth-of-type(1) {border-bottom-color:$theme-green;}
+        &:nth-of-type(2) {border-bottom-color:$theme-blue;}
+        &:nth-of-type(3) {border-bottom-color:$theme-purple;}
+        &:nth-of-type(4) {border-bottom-color:$theme-red;}
+      }
+      .sub {padding-left:($grid-gutter-width/2);
+        a {font-weight:normal;}
       }
     }
 
-    .sub {margin-top:-20px;visibility:hidden;opacity:0;line-height:1.4em;font-weight:normal;font-size:1rem;position:absolute;top:100%;left:50%;min-width:260px;background:$header-background-color;text-transform:none;@include transition(all 0.18s ease);@include transform(translate3d(-50%, 0, 0));
-      li {padding:0 1.6rem;
-        &:hover {background:rgba(255,255,255,0.1);}
-        a {border-bottom-width:2px;}
-        &:last-child a {border-bottom:0;}
-      }
-    }
-
-    // Right-anchor the last slideout menu
-    .primary > li:last-of-type .sub {left:auto;right:0;@include transform(translate3d(0, 0, 0));}
-
-    // Menu hover open
-    .primary > li:hover .sub {margin-top:0;visibility:visible;opacity:1;}
+    &.active {top:100%;visibility:visible;opacity:1;}
   }
+
+  .nav-trigger {position:absolute;top:0;right:0;bottom:0;padding:8px ($grid-gutter-width/2);font-size:2rem;}
 }
 
 @media screen and (max-width:$screen-lg){
   header .container {width:100%;}
 }
 
-@media screen and (min-width:$screen-md){
-  header {
-    .links .inlined {margin:0 1.3rem;}
-    nav {
-      .primary > li a {padding:1rem 2rem;}
+@media screen and (min-width:$screen-sm){
+  header {min-height:$header-height;
+    .nav-container {position:relative;}
+    .container {height:$header-height;}
+    .logo {
+      img {max-height:none;}
+    }
+
+    nav {visibility:visible;opacity:1;top:auto;left:auto;right:($grid-gutter-width/2);bottom:0;background:none;
+      .primary {font-size:0;line-height:0;
+        > li {padding:0;display:inline-block;font-weight:bold;border-bottom:0;
+          a {padding:1rem 1.2rem;border-bottom:4px solid #fff;}
+          &:nth-of-type(1) a {border-bottom-color:$theme-green;}
+          &:nth-of-type(2) a {border-bottom-color:$theme-blue;}
+          &:nth-of-type(3) a {border-bottom-color:$theme-purple;}
+          &:nth-of-type(4) a {border-bottom-color:$theme-red;}
+          &:nth-of-type(1) .sub li::before {color:$theme-green;}
+          &:nth-of-type(2) .sub li::before {color:$theme-blue;}
+          &:nth-of-type(3) .sub li::before {color:$theme-purple;}
+          &:nth-of-type(4) .sub li::before {color:$theme-red;}
+        }
+        .sub {padding-left:0;margin-top:-20px;visibility:hidden;opacity:0;line-height:1.4em;font-weight:normal;font-size:1rem;position:absolute;top:100%;left:50%;min-width:260px;background:$header-background-color;text-transform:none;@include transition(all 0.18s ease);@include transform(translate3d(-50%, 0, 0));
+          li {padding:0 1.2rem;position:relative;
+            &::before {content:$fa-var-angle-right;font-family:$font-family-font-awesome;font-size:22px;position:absolute;top:16px;left:1.2rem;line-height:1;}
+            &:hover {background:rgba(255,255,255,0.1);}
+            a {border-bottom-width:2px;}
+            &:last-child a {border-bottom:0;}
+          }
+        }
+      }
+
+      // Right-anchor the last slideout menu
+      .primary > li:last-of-type .sub {left:auto;right:0;@include transform(translate3d(0, 0, 0));}
+
+      // Menu hover open
+      .primary > li:hover .sub {margin-top:0;visibility:visible;opacity:1;}
     }
   }
 }
 
-@media screen and (max-width:($screen-sm + 60px)){
+@media screen and (min-width:$screen-md){
   header {
-    .links, nav {display:none;}
+    .tertiary {padding-top:2.4rem;
+      .list-inline {display:block;right:-($grid-gutter-width/2);background:none;
+        li {padding:0 ($grid-gutter-width/2);}
+      }
+    }
+    nav {
+      .primary > li {font-size:1.3rem;
+        a {padding:1rem 2rem;}
+      }
+    }
   }
 }
+
+//@media screen and (max-width:($screen-sm + 60px)){
+//  header {
+//    .tertiary, nav {display:none;}
+//  }
+//}

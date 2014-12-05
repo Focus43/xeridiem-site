@@ -2,12 +2,23 @@
 @import '../../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid';
 
 .flexry-masthead {height:380px;width:100%;position:relative;
-  .node {width:100%;height:100%;position:absolute;top:0;left:0;color:#fff;background-size:cover;background-position:100% 100%;
+  .node {visibility:hidden;opacity:0;width:100%;height:100%;position:absolute;top:0;left:0;color:#fff;background-size:cover;background-position:100% 100%;@include transition(all 0.5s ease);
+    &.active{visibility:visible;opacity:1;}
     .inner-1 {margin:0 auto;text-align:left;@extend .container;
-      .inner-2 {max-width:40%;display:inline-block;}
+      .inner-2 {max-width:80%;display:inline-block;}
       h2 {font-size:3rem;padding:2.6rem 0 2.6rem 3.4rem;background:transparent url('/packages/xeridiem/images/logos/symbol_white_opaque.png') no-repeat 0 50%;background-size:contain;text-transform:capitalize;}
-      p {display:block;margin-left:3rem;padding:0.6rem;background:rgba(0,0,0,0.35);}
+      p {max-width:380px;display:block;margin-left:3rem;padding:0.6rem;background:rgba(0,0,0,0.35);}
       a.link-to {display:inline-block;color:#fff;padding:0.5rem 1rem;font-weight:bold;border:1px solid #fff;margin-left:3rem;text-transform:uppercase;}
     }
+  }
+
+  .arrow {padding:1rem;position:absolute;top:50%;margin-top:-55px;font-size:60px;z-index:2;color:#fff;line-height:1;@include text-shadow(0 1px 0 #000);
+    &:hover {background:rgba(0,0,0,0.25);}
+    &.arrow-left {left:0;}
+    &.arrow-right {right:0;}
+  }
+
+  .markers {position:absolute;bottom:0;left:0;right:0;text-align:center;padding:1rem;z-index:2;
+    a {color:#fff;display:inline-block;line-height:1;padding:5px 2px;}
   }
 }

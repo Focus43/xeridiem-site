@@ -12,19 +12,19 @@
         <main>
             <div id="section-1" class="container-fluid">
                 <div class="flexgrid row padless-grid">
-                    <div class="flex-col-8 flex-justify-start col-sm-8">
+                    <div class="flex-col-sm-8 flex-justify-start col-sm-8">
                         <div class="column-pad pad-2x">
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
-                                        <?php $a = new Area('Main 1'); $a->display($c); ?>
+                                        <?php $a = new Area('Main 1'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="flex-col-4 flex-justify-start col-sm-4 background-gray">
-                        <div class="column-pad pad-2x"><?php $a = new Area('Main 2'); $a->display($c); ?></div>
+                    <div class="flex-col-sm-4 flex-justify-start col-sm-4 background-gray">
+                        <div class="column-pad pad-2x"><?php $a = new Area('Main 2'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?></div>
                     </div>
                 </div>
             </div>
@@ -32,17 +32,8 @@
             <div id="section-2" class="container-fluid">
                 <div class="row padless-grid">
                     <div class="col-sm-12">
-                        <?php $a = new Area('Main 3'); $a->display($c); ?>
+                        <?php $a = new Area('Main 3'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?>
                     </div>
-                </div>
-            </div>
-
-            <div id="section-3" class="flexgrid">
-                <div class="flex-col-4 flex-justify-start background-dark-blue">
-                    <div class="column-pad pad-2x"><?php $a = new Area('Main 4'); $a->display($c); ?></div>
-                </div>
-                <div class="flex-col-8">
-                    <?php $a = new Area('Main 5'); $a->display($c); ?>
                 </div>
             </div>
 
