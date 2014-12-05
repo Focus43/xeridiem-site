@@ -29,6 +29,7 @@ header {color:$header-font-color;position:relative;background:$header-background
   }
 
   nav {position:absolute;top:150%;visibility:hidden;opacity:0;left:0;right:0;background:rgba($theme-dark-blue, 0.95);@include transition(all 0.25s ease);
+    a:hover {color:#fff;}
     .primary {margin:0;
       > li {padding:8px 0;display:block;font-size:1.1rem;border-bottom:4px solid #fff;line-height:1;text-transform:uppercase;position:relative;
         a {font-weight:bold;display:block;padding:8px ($grid-gutter-width/2);}

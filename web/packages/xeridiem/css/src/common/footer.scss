@@ -1,5 +1,5 @@
 footer {background:$theme-dark-blue;color:#fff;
-  .columns {padding-top:1rem;padding-bottom:2rem;
+  .columns {padding-top:1rem;
     [class*="flex-col"] {background:transparent;@include transition(background 0.25s ease);
       &:hover {background:rgba(255,255,255,0.08);}
     }
@@ -36,4 +36,8 @@ footer {background:$theme-dark-blue;color:#fff;
     }
     p:last-of-type {margin-bottom:0;}
   }
+}
+
+@media screen and (max-width:$screen-md){
+  footer .container {width:100%;}
 }
