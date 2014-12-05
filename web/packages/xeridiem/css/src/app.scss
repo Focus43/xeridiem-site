@@ -57,8 +57,14 @@ h1,h2,h3 {
     &:empty {padding:0;}
   }
 
+  // Parallax
+  .parallax {color:#fff;padding:4rem 0;text-align:center;background-size:cover;background-position:50% 0%;
+    a,.btn {font-weight:normal;}
+    h1,h2,h3,h4,p {font-size:280%;}
+  }
+
   // Page header (content block template)
-  .page-masthead {height:300px;color:#fff;
+  .page-masthead {padding:1rem;color:#fff;
     h1,h2,h3,h4,p {margin:0;font-size:400%;}
   }
 
