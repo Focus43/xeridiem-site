@@ -5,6 +5,7 @@
                 <div class="inner border-green">
                     <?php
                     $a = new GlobalArea('Footer 1'); /* @var $a Area */
+                    XeridiemPackage::setAreaDefaultTemplates($a);
                     $a->display($c);
                     ?>
                 </div>
@@ -51,6 +52,7 @@
                 <div class="col-sm-5">
                     <?php
                     $a = new GlobalArea('Footer 5'); /* @var $a Area */
+                    XeridiemPackage::setAreaDefaultTemplates($a);
                     $a->display($c);
                     ?>
                 </div>
@@ -58,6 +60,7 @@
                     <div class="quick-links">
                         <?php
                         $a = new GlobalArea('Footer 6'); /* @var $a Area */
+                        XeridiemPackage::setAreaDefaultTemplates($a);
                         $a->display($c);
                         ?>
                     </div>
