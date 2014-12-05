@@ -16,13 +16,13 @@
                 <div class="row tertiary hidden-xs">
                     <div class="col-sm-12">
                         <ul class="list-inline">
-                            <li><a class="email"><i class="fa fa-envelope"></i> info@xeridiem.com</a></li>
-                            <li><a class="phone"><i class="fa fa-phone"></i> +1-520-882-7794</a></li>
+                            <li><a class="email"><i class="fa fa-envelope"></i> <?php echo XeridiemPackage::getPackageConfigObj()->get('theme_email_address'); ?></a></li>
+                            <li><a class="phone"><i class="fa fa-phone"></i> <?php echo XeridiemPackage::getPackageConfigObj()->get('theme_phone_number'); ?></a></li>
                             <li class="hidden-xs hidden-sm">
-                                <a class="sociable"><i class="fa fa-facebook"></i></a>
-                                <a class="sociable"><i class="fa fa-twitter"></i></a>
-                                <a class="sociable"><i class="fa fa-youtube-play"></i></a>
-                                <a class="sociable"><i class="fa fa-linkedin"></i></a>
+                                <a class="sociable" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_facebook'); ?>"><i class="fa fa-facebook"></i></a>
+                                <a class="sociable" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_twitter'); ?>"><i class="fa fa-twitter"></i></a>
+                                <a class="sociable" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_youtube'); ?>"><i class="fa fa-youtube-play"></i></a>
+                                <a class="sociable" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_linkedin'); ?>"><i class="fa fa-linkedin"></i></a>
                             </li>
                             <li>
                                 <div id="google_translate_element"></div>

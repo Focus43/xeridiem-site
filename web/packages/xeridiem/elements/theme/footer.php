@@ -27,9 +27,9 @@
             </div>
             <div class="flex-col-sm-6 flex-col-md-3 flex-justify-start col-sm-6 col-md-3">
                 <div class="inner border-purple">
-                    <h5 class="marginless"><i class="fa fa-twitter"></i> @xeridiem</h5>
-                    <a class="twitter-timeline" href="https://twitter.com/jonohartman" data-widget-id="540651458366939137" data-tweet-limit="1" data-link-color="#ffffff" data-chrome="noheader nofooter noborders noscrollbar transparent" height="auto" data-height="auto">
-                        Tweets by @xeridiem
+                    <h5 class="marginless"><i class="fa fa-twitter"></i> &#64;<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?></h5>
+                    <a class="twitter-timeline" href="https://twitter.com/<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?>" data-widget-id="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_widget_id'); ?>" data-tweet-limit="1" data-link-color="#ffffff" data-chrome="noheader nofooter noborders noscrollbar transparent" height="auto" data-height="auto">
+                        Tweets by &#64;<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?>
                     </a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
@@ -37,10 +37,10 @@
             <div class="flex-col-sm-6 flex-col-md-3 flex-justify-start col-sm-6 col-md-3">
                 <div class="inner border-red">
                     <h5>Social Media</h5>
-                    <a class="btn btn-default social-link" target="_blank" href=""><i class="fa fa-facebook"></i></a>
-                    <a class="btn btn-default social-link" target="_blank" href=""><i class="fa fa-twitter"></i></a>
-                    <a class="btn btn-default social-link" target="_blank" href=""><i class="fa fa-youtube-play"></i></a>
-                    <a class="btn btn-default social-link" target="_blank" href=""><i class="fa fa-linkedin"></i></a>
+                    <a class="btn btn-default social-link" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_facebook'); ?>"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-default social-link" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_twitter'); ?>"><i class="fa fa-twitter"></i></a>
+                    <a class="btn btn-default social-link" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_youtube'); ?>"><i class="fa fa-youtube-play"></i></a>
+                    <a class="btn btn-default social-link" target="_blank" href="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_social_link_linkedin'); ?>"><i class="fa fa-linkedin"></i></a>
                 </div>
             </div>
         </div>

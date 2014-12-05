@@ -6,7 +6,9 @@
 
 	    protected $pkgHandle 			= self::PACKAGE_HANDLE;
 	    protected $appVersionRequired 	= '5.6.2.1';
-	    protected $pkgVersion 			= '0.09';
+	    protected $pkgVersion 			= '0.11';
+
+        private static $configObj;
 	
 		
 		/**
@@ -51,6 +53,21 @@
          */
         public static function setAreaDefaultTemplates( Area $a ){
             $a->setCustomTemplate('image', 'default.php');
+        }
+
+
+        /**
+         * Get a Config instance with the package object preset. This takes care of
+         * memoizing the config object so the same Config instance can be used multiple
+         * times throughout the same request.
+         * @return Config
+         */
+        public static function getPackageConfigObj(){
+            if( ! (self::$configObj instanceof Config) ){
+                self::$configObj = new Config();
+                self::$configObj->setPackageObject(Package::getByHandle(self::PACKAGE_HANDLE));
+            }
+            return self::$configObj;
         }
 		
 	
@@ -240,6 +257,9 @@
          * @return XeridiemPackage
          */
         private function setupSinglePages(){
+            SinglePage::add('/dashboard/theme_settings', $this->packageObject());
+            SinglePage::add('/dashboard/theme_settings/settings', $this->packageObject());
+
             return $this;
         }
 
