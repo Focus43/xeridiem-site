@@ -123,6 +123,25 @@ module.exports = function( gulp ){
         return flexryJsMasthead(_packagePath('blocks/flexry_gallery/templates/masthead/src/view.js'), 'view.js', true);
     });
 
+    // Block build tasks
+    function flexrySassSimpleGrid( _file, _style ){
+        return gulp.src(_file)
+            .pipe(sass({compass:true, style:(_style || 'nested')}))
+            .on('error', function( err ){
+                utils.log(utils.colors.red(err.toString()));
+                this.emit('end');
+            })
+            .pipe(gulp.dest(_packagePath('blocks/flexry_gallery/templates/simple_grid/')));
+    }
+
+    gulp.task('flexry:sass:simple_grid:dev', function(){
+        return flexrySassSimpleGrid(_packagePath('blocks/flexry_gallery/templates/simple_grid/src/view.scss'));
+    });
+
+    gulp.task('flexry:sass:simple_grid:prod', function(){
+        return flexrySassSimpleGrid(_packagePath('blocks/flexry_gallery/templates/simple_grid/src/view.scss'), 'compressed');
+    });
+
     /**
      * Grouped tasks (by environment target)
      */
@@ -162,6 +181,7 @@ module.exports = function( gulp ){
         gulp.watch(_packagePath('js/src/**/*.js'), {interval:1000}, ['js:app:dev']);
         gulp.watch(_packagePath('blocks/flexry_gallery/templates/masthead/src/*.scss'), {interval:1000}, ['flexry:sass:masthead:dev']);
         gulp.watch(_packagePath('blocks/flexry_gallery/templates/masthead/src/*.js'), {interval:1000}, ['flexry:js:masthead:dev']);
+        gulp.watch(_packagePath('blocks/flexry_gallery/templates/simple_grid/src/*.scss'), {interval:1000}, ['flexry:sass:simple_grid:dev']);
     });
 
 };

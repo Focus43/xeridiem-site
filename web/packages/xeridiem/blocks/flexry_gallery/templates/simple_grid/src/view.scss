@@ -1,0 +1,17 @@
+@import '../../../../../css/src/required';
+
+.simple-grid {font-size:0;line-height:0;
+  .node {color:#fff;position:relative;display:inline-block;width:100%;min-height:180px;background-size:cover;background-position:50% 50%;}
+  .overlay {visibility:hidden;opacity:0;background:rgba(0,0,0,0.75);font-size:1rem;line-height:1;position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;@include transition(all 0.25s ease);}
+  .node:hover .overlay {visibility:visible;opacity:1;}
+  .cellular {padding:0.75rem;white-space:normal;}
+  h5 {font-weight:bold;font-size:110%;}
+}
+
+@media screen and (min-width:$screen-sm){
+  .simple-grid .node {width:50%;}
+}
+
+@media screen and (min-width:$screen-md){
+  .simple-grid .node {width:25%;min-height:200px;}
+}

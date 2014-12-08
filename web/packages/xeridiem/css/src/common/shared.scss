@@ -6,8 +6,8 @@
       .ccm-layout-cell {color:$theme-dark-blue;text-align:center;width:auto !important;
         .link-grid-item {color:inherit;display:block;padding:1.6rem 1rem;
           img {max-height:50px;width:auto !important;margin:0 auto 1rem;}
-          h3 {font-size:1.4rem;margin:0 0 10px;}
-          span {font-size:0.8rem;line-height:1.2;max-width:80%;margin:0 auto;}
+          p {font-size:0.8rem;line-height:1.2;max-width:80%;margin:0 auto;}
+          p:first-of-type {font-size:1.4rem;margin-bottom:10px;max-width:90%;}
         }
         &:hover {color:#fff;background:$theme-blue;}
         &:nth-of-type(1){border-left:0;}
