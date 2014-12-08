@@ -63,7 +63,7 @@ iframe[src*="youtube"]{width:100%;max-width:100% !important;}
 }
 
 // Page header (content block template)
-.page-masthead {padding:1rem;color:#fff;
+.page-masthead {height:275px;color:#fff;background-size:cover;background-position:50% 50%;
   h1,h2,h3,h4,p {margin:0;font-size:400%;}
 }
 

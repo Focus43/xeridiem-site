@@ -6,7 +6,7 @@
 
 	    protected $pkgHandle 			= self::PACKAGE_HANDLE;
 	    protected $appVersionRequired 	= '5.6.2.1';
-	    protected $pkgVersion 			= '0.11';
+	    protected $pkgVersion 			= '0.12';
 
         private static $configObj;
 	
@@ -130,6 +130,7 @@
 			$this->runUpgradeTasks( $this->pkgVersion )
                  ->setupAttributeTypes()
 				 ->setupFileAttributes()
+                 ->setupBlocks()
 				 ->setupTheme()
 				 ->setupPageTypes()
                  ->assignPageTypes()
@@ -201,6 +202,18 @@
 			
 			return $this;
 		}
+
+
+        /**
+         * @return XeridiemPackage
+         */
+        private function setupBlocks(){
+            if(!is_object(BlockType::getByHandle('image_and_content'))) {
+                BlockType::installBlockTypeFromPackage('image_and_content', $this->packageObject());
+            }
+
+            return $this;
+        }
 		
 		
 		/**
