@@ -9,7 +9,7 @@
 
   .flexgrid {
     @include flex(1 1 100%);
-    @include flex-basis(initial);
+    //@include flex-basis(initial);
     @include align-content(center);
     @include align-items(stretch);
     @include flex-wrap(wrap);
@@ -17,7 +17,7 @@
     @include flexbox((display:flexbox,flex-direction:column), $version: 2);
     @include flexbox((display:flex,flex-direction:column));
     [class*="flex-col-"] {
-      width:100%;
+      //width:100%;
       @include justify-content(center);
       @include flex(1 1 auto);
       @include flexbox((display:box,box-orient:horizontal), $version: 1);
@@ -33,20 +33,20 @@
 
   // See packages/xeridiem/models/layout.php override!
   .flexgrid.ccm-layout-row {
-//    .ccm-layout-cell {
-//      @include justify-content(center);
-//      @include flex(1 1 auto);
-//      @include flexbox((display:box,box-orient:horizontal), $version: 1);
-//      @include flexbox((display:flexbox,flex-direction:column), $version: 2);
-//      @include flexbox((display:flex,flex-direction:column));
-//    }
-//    $i: 1;
-//    @for $i from 1 through $grid-columns {
-//      $className: '.flexgrid-columns-#{$i}';
-//      &#{$className} .ccm-layout-cell{
-//        @include flex($i 1 floor(percentage($i / $grid-columns))-1);
-//      }
-//    }
+    .ccm-layout-cell {
+      @include justify-content(center);
+      @include flex(1 1 auto);
+      @include flexbox((display:box,box-orient:horizontal), $version: 1);
+      @include flexbox((display:flexbox,flex-direction:column), $version: 2);
+      @include flexbox((display:flex,flex-direction:column));
+    }
+    $i: 1;
+    @for $i from 1 through $grid-columns {
+      $className: '.flexgrid-columns-#{$i}';
+      &#{$className} .ccm-layout-cell{
+        @include flex($i 1 floor(percentage($i / $grid-columns))-1);
+      }
+    }
   }
 
   @media screen and (min-width:$screen-sm){
