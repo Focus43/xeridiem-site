@@ -1,13 +1,18 @@
-.pg-home #page-body {
-  #masthead {}
+.pg-home {
+  #triple-columns {
+    .column-pad {
+      .inner {position:relative;padding-left:65px;margin:0 auto;max-width:380px;}
+      h2 {font-weight:bold;}
+      img {position:absolute;left:0;top:1rem;max-width:50px;@include transform(translate3d(0,-50%,0));}
+    }
+  }
+}
 
-  main {
-    #triple-columns {
-      .column-pad {padding:2rem;
-        .inner {position:relative;padding-left:65px;margin:0 auto;max-width:380px;}
-        h2 {font-weight:bold;}
-        img {position:absolute;left:0;top:1rem;max-width:50px;@include transform(translate3d(0,-50%,0));}
-      }
+@media screen and (min-width:$screen-sm){
+  html.flexbox {
+    .pg-home {
+      #triple-columns, #middle-section {@include flexboxize;}
+      #middle-section {@include flexboxize-align-items-center;}
     }
   }
 }

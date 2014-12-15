@@ -276,7 +276,7 @@
         }
 
         for( $i=0; $i<$rows; $i++ ){
-			echo '<div class="flexgrid flexgrid-columns-'.$columns.' ccm-layout-row ccm-layout-row-'.($i+1).'">';
+			echo '<div class="custom-grid custom-grid-columns-'.$columns.' ccm-layout-row ccm-layout-row-'.($i+1).'">';
 				$cumulativeWidth=0;
 				for( $j=0; $j<$columns; $j++ ){	 
 					$colWidth=($columns==1)?'100%':$this->getNextColWidth($j,$cumulativeWidth);

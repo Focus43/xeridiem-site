@@ -10,9 +10,11 @@
         <?php Loader::packageElement('theme/masthead', XeridiemPackage::PACKAGE_HANDLE, array('c' => $c)); ?>
 
         <main>
-            <div id="section-1" class="container-fluid">
-                <div class="flexgrid row padless-grid">
-                    <div class="flex-col-sm-8 flex-justify-start col-sm-8">
+            <div class="container-fluid">
+                <div id="section-1" class="row padless-grid">
+                    <!-- ghetto fallback for browsers that don't support Flexbox -->
+                    <span class="pseudo-column"></span>
+                    <div class="col-sm-8">
                         <div class="column-pad pad-2x">
                             <div class="container-fluid">
                                 <div class="row">
@@ -23,17 +25,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-col-sm-4 flex-justify-start col-sm-4 background-gray">
+                    <div class="col-sm-4 background-gray">
                         <div class="column-pad pad-2x"><?php $a = new Area('Main 2'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?></div>
                     </div>
                 </div>
-            </div>
 
-            <div id="section-2" class="container-fluid">
-                <div class="row padless-grid">
+                <div id="section-2" class="row padless-grid">
                     <div class="col-sm-12">
                         <?php $a = new Area('Main 3'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?>
                     </div>
+                </div>
+
+                <div id="section-3" class="row padless-grid">
+                    <!-- ghetto fallback for browsers that don't support Flexbox -->
+                    <span class="pseudo-column"></span>
+                    <div class="background-dark-blue col-sm-4">
+                        <div class="column-pad pad-2x"><?php $a = new Area('Main 4'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?></div>
+                    </div>
+                    <div class="col-sm-8"><?php $a = new Area('Main 5'); XeridiemPackage::setAreaDefaultTemplates($a); $a->display($c); ?></div>
                 </div>
             </div>
 

@@ -31,65 +31,43 @@ $btn-primary-border:            $btn-primary-bg;
 $btn-danger-bg:                 $theme-red;
 $btn-danger-border:             $btn-danger-bg;
 
-
-//$magenta:                       #c7254e;
-//$magenta-step-down15:           darken($magenta, 15%);
-//$magenta-step-down7_5:          darken($magenta, 7.5%);
-//$magenta-step-up7_5:            darken($magenta, 7.5%);
-//$magenta-step-up15:             lighten($magenta, 15%);
-//$magenta-step-up25:             lighten($magenta, 25%);
-//$magenta-transparent:           rgba($magenta-step-down15, 0.9);
-//$dark-blue:                     #153e4d;
-//$light-blue:                    #2299ac;
-//$lime-green:                    #219161;
-//$sidebar-animate-time:          0.18s;
-//$sidebar-animate-trigger-time:  0.3s;
-//$mask-animate-time:             0.3s;
-//// Bootstrap
-//$body-bg:                       #0f0f0f;
-//$text-color:                    #fff;
-//$font-family-serif:             'Rokkitt', serif;
-//$font-family-base:              $font-family-serif;
-//$font-family-grunge:            'Permanent Marker', $font-family-base;
-//$font-size-base:                19px;
-//$font-size-h1:                  400%;
-//$font-size-h2:                  300%;
-//$font-size-h3:                  200%;
-//$font-size-h4:                  160%;
-//$headings-font-weight:          100;
-//$btn-font-weight:               100;
-//$border-radius-base:            0;
-//$border-radius-large:           0;
-//$border-radius-small:           0;
-//$link-color:                    #fff;
-//$input-bg:                      $magenta-transparent;
-//$input-border:                  transparent;
-//$input-color:                   #f5f5f5;
-//$input-color-placeholder:       $magenta-step-up15;
-//$input-border-focus:            $magenta-step-up7_5;
-
 // Imports
 @import 'compass';
 @import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import '../../bower_components/font-awesome/scss/variables';
 
-// More variables (AFTER) bootstrap defaults
-//$grid-gutter-half: ($grid-gutter-width / 2);
-//
+
+@mixin flexboxize($direction: row) {
+  @include flexbox((
+    display: flexbox,
+    flex-direction: $direction
+  ), $version: 2);
+  @include flexbox((
+    display: flex,
+    flex-direction: $direction
+  ));
+}
+
+@mixin flexboxize-align-items-center {
+  @include flexbox((
+    flex-align: center
+  ), $version: 2);
+  @include flexbox((
+    align-items: center
+  ));
+}
+
+@mixin flexboxize-align-self-center {
+  @include flexbox((
+    flex-item-align: center
+  ), $version: 2);
+  @include flexbox((
+    align-self: center
+  ));
+}
+
 //// Mixins
-//@mixin cubify($color, $size){ $size: floor($size); // round down if decimal
-//  position:relative;
-//  // left depth
-//  &::before {content:"";display:block;width:$size;height:100%;position:absolute;top:0;bottom:0;left:-$size;background:lighten($color, 2.5%);@include transform(skewY(-45deg) translateY($size/2));}
-//  // bottom depth
-//  &::after {content:"";display:block;height:$size;position:absolute;bottom:-$size;left:0;right:0;background:darken($color, 2.5%);@include transform(skewX(-45deg) translateX(-($size/2)));}
-//  // if .depth-bottom is included, show depth below
-//  &.no-cubify-bottom {
-//    &::after {display:none;}
-//  }
-//}
-//
 //@mixin scrollbars($color, $width:6px){
 //  ::-webkit-scrollbar {width:$width;}
 //  ::-webkit-scrollbar-button {display:none;visibility:hidden;}

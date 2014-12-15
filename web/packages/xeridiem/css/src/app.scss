@@ -1,6 +1,6 @@
 @import 'required';
 @import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons';
-@import 'common/flexgrid';
+//@import 'common/flexgrid';
 
 html, body {font-size:$font-size-base;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 *:active, *:focus {outline:none !important;}
@@ -74,15 +74,18 @@ iframe[src*="youtube"]{width:100%;max-width:100% !important;}
   &:hover {background:darken($gray-lighter, 8%);}
 }
 
+// Flexry Lightbox "loading" icon stops animating for some reason, so lets just hide it
+.flexry-lightbox .loader-container {display:none !important;}
+// Also, fix blurry text in caption containers
+.flexry-lightbox .caption-container .caption {@include transform(translateZ(0));}
+
 @import "common/header";
 @import "common/main";
 @import "common/footer";
 
 // specific page types
 @import 'page_types/home';
-@import 'page_types/default';
-@import 'page_types/tabbed';
-@import 'common/shared';
+@import 'page_types/all_landing';
 
 // CMS Edit mode
 .cms-editing {
