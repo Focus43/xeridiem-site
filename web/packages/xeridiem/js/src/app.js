@@ -40,8 +40,25 @@
         $('.node', '.content-tab-nodes').hide().filter(':eq('+idx+')').show();
     });
 
+    // Navigation menu
     $('.nav-trigger', 'header').on('click', function(){
         $('nav').toggleClass('active');
     });
+
+    // Google Translate widget display
+    (function _try(){
+        var trans = document.querySelector('#google_translate_element'),
+            span  = trans.querySelector('.goog-te-menu-value span:first-child');
+        if( span ){
+            setTimeout(function(){
+                if( span.innerText.indexOf('Select') !== -1 ){
+                    span.innerText = 'English';
+                }
+                trans.style.display = 'block';
+            }, 250);
+        }else{
+            setTimeout(_try, 250);
+        }
+    })();
 
 })();

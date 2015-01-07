@@ -12,6 +12,7 @@
   html.flexbox {
     .pg-home {
       #triple-columns, #middle-section {@include flexboxize;}
+      #triple-columns {margin:0 -16px;}
       #middle-section {@include flexboxize-align-items-center;}
     }
   }

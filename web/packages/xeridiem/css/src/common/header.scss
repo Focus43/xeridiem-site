@@ -10,20 +10,21 @@ header {color:$header-font-color;position:relative;background:$header-background
 
   .tertiary {padding-top:1.6rem;text-align:right;
     .list-inline {display:inline-block;position:relative;margin:0;right:-12px;
-      li {padding:8px 12px;}
+      li {padding:8px 12px;vertical-align:top;}
       .sociable {color:#000;display:inline-block;min-height:20px;min-width:30px;background:#fff;padding:2px 8px;}
-      #google_translate_element, #google_translate_element * {display:inline-block;}
-      #google_translate_element {padding:2px;background:#fff;position:relative;font-family:$font-family-base;
-        .goog-te-gadget {width:65px;
-          &::before {font-size:14px;font-weight:100;color:#000;content:'Lang';display:inline-block;position:absolute;left:7px;top:3px;width:100%;height:100%;text-align:left;z-index:0;}
-          &::after {content:$fa-var-chevron-down;font-family:$font-family-font-awesome;font-size:15px;position:absolute;right:8px;top:4px;line-height:1;z-index:0;}
+      #google_translate_element {display:none;background:#fff;line-height:1 !important;
+        * {display:inline-block !important;line-height:1 !important;}
+        .goog-te-gadget {
+          .goog-te-gadget-simple {border:0 !important;padding:0 !important;
+            img {display:none !important;visibility:hidden;}
+            .goog-te-menu-value {position:relative;margin:0;padding:7px 28px 7px 7px;font-size:$font-size-base - 3px;
+              span {font-size:inherit;
+                &::after {content:$fa-var-chevron-down;font-family:$font-family-font-awesome;font-size:15px;position:absolute;right:7px;top:5px;line-height:1;z-index:0;}
+              }
+              span[style] {display:none !important;visibility:hidden;}
+            }
+          }
         }
-        .goog-te-gadget-simple {border:0;background:transparent !important;padding:0;margin:0;position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;
-          * {visibility:hidden;}
-        }
-        .goog-te-menu-value * {display:none;}
-        // @note: might be legally required to include logo!
-        .goog-te-gadget-icon {position:absolute;left:100%;top:3px;opacity:0.5;display:none;}
       }
     }
   }

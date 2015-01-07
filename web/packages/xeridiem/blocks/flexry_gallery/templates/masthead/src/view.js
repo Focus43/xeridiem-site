@@ -1,10 +1,19 @@
 (function( $ ){
 
-    function MastheadSlider( $selector, _settings ){
+    function MastheadSlider( $selector, _configs ){
 
-        var $nodes   = $('.node', $selector),
-            $arrows  = $('.arrow', $selector),
-            $markers = $('.markers', $selector);
+        var $nodes      = $('.node', $selector),
+            $arrows     = $('.arrow', $selector),
+            $markers    = $('.markers', $selector),
+            _settings   = $.extend({}, {
+                autoPlay:       false,
+                autoPlaySpeed:  3500,
+                pauseMouseOver: true
+            }, _configs);
+
+        function currentIndex(){
+            return $nodes.filter('.active').index();;
+        }
 
         function activateByIndex( indexTo ){
             $nodes.filter('.active').removeClass('active');
@@ -13,18 +22,63 @@
             $('.marker', $markers).filter(':eq('+indexTo+')').find('i').addClass('fa-circle');
         }
 
+        function previous(){
+            var _index = currentIndex();
+            activateByIndex( (_index == 0) ? $nodes.length-1 : _index - 1 );
+        }
+
+        function next(){
+            var _index = currentIndex();
+            activateByIndex( (_index == $nodes.length-1) ? 0 : _index + 1 );
+        }
+
+        /**
+         * Arrow handler
+         */
         $arrows.on('click', function(){
-            var indexActive = $nodes.filter('.active').index();
             if( $(this).hasClass('arrow-left') ){
-                activateByIndex( (indexActive == 0) ? $nodes.length-1 : indexActive - 1 );
+                previous();
             }else{
-                activateByIndex( (indexActive == $nodes.length-1) ? 0 : indexActive + 1 );
+                next();
             }
         });
 
+        /**
+         * Marker indicators handler
+         */
         $('.marker', $markers).on('click', function(){
             activateByIndex( $(this).index() );
         });
+
+        /**
+         * Autoplay?
+         */
+        if( _settings.autoPlay ){
+            var _hovered = false;
+
+            /**
+             * Iterator
+             */
+            (function _loop( _time ){
+                setTimeout(function(){
+                    if( _settings.pauseMouseOver ){
+                        if( !_hovered ){
+                            next();
+                        }
+                    }else{
+                        next();
+                    }
+                    _loop(_time);
+                }, _time);
+            })(_settings.autoPlaySpeed);
+
+            /**
+             * Pause on mouseover handlers
+             */
+            $selector
+                .on('mouseenter', function(){ _hovered = true; })
+                .on('mouseleave', function(){ _hovered = false; });
+        }
     }
 
     $.fn.mastheadSlider = function( _settings ){

@@ -4,6 +4,12 @@
 
 $selectorID = sprintf('masthead-%s', $this->controller->bID);
 $imageList  = $fileListObj->getPage();
+
+$settingsData    = (object) array(
+    'autoPlay'          => (bool)($templateHelper->value('autoPlay') === 'true'),
+    'autoPlaySpeed'     => (int)((float)$templateHelper->value('autoPlaySpeed')*1000),
+    'pauseMouseOver'    => (bool)($templateHelper->value('pauseMouseOver') === 'true')
+);
 ?>
 
 <div id="<?php echo $selectorID; ?>" class="flexry-masthead">

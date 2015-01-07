@@ -6,7 +6,7 @@
 
 	    protected $pkgHandle 			= self::PACKAGE_HANDLE;
 	    protected $appVersionRequired 	= '5.6.2.1';
-	    protected $pkgVersion 			= '0.12';
+	    protected $pkgVersion 			= '0.13';
 
         private static $configObj;
 	
@@ -129,6 +129,7 @@
 		private function installAndUpdate(){
 			$this->runUpgradeTasks( $this->pkgVersion )
                  ->setupAttributeTypes()
+                 ->setupAttributeAssociations()
 				 ->setupFileAttributes()
                  ->setupBlocks()
 				 ->setupTheme()
@@ -182,6 +183,20 @@
         }
 
 
+        /**
+         * @return XeridiemPackage
+         */
+        private function setupAttributeAssociations(){
+            try {
+                if( is_object($this->attributeKeyCategory('file')) ){
+                    $this->attributeKeyCategory('file')->associateAttributeKeyType($this->attributeType('image_file'));
+                }
+            }catch(Exception $e){ /* Key is already assigned; fail gracefully */ }
+
+            return $this;
+        }
+
+
 		/**
 		 * @return XeridiemPackage
 		 */
@@ -197,6 +212,13 @@
                 FileAttributeKey::add($this->attributeType('page_selector'), array(
                     'akHandle'					=> 'link',
                     'akName'					=> t('Page Link')
+                ), $this->packageObject());
+            }
+
+            if( !(is_object(FileAttributeKey::getByHandle('alternate'))) ){
+                FileAttributeKey::add($this->attributeType('image_file'), array(
+                    'akHandle'					=> 'alternate',
+                    'akName'					=> t('Alternate (Hover)')
                 ), $this->packageObject());
             }
 			
