@@ -6,7 +6,9 @@ footer {background:$theme-dark-blue;color:#fff;
       &.border-purple {border-top-color:$theme-purple;}
       &.border-red {border-top-color:$theme-red;}
       h5 {margin-top:0;text-transform:uppercase;font-weight:bold;}
-      .social-link {color:#000;}
+      .social-link {color:#000;
+        &:hover {color:#ee3226;}
+      }
     }
   }
   .bottom {font-size:13px;background:#005696;padding:1rem 0;text-align:center;

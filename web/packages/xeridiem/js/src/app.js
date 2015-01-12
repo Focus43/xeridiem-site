@@ -51,8 +51,12 @@
             span  = trans.querySelector('.goog-te-menu-value span:first-child');
         if( span ){
             setTimeout(function(){
-                if( span.innerText.indexOf('Select') !== -1 ){
+                if( span.innerText && span.innerText.indexOf('Select') !== -1 ){
                     span.innerText = 'English';
+                }
+                // Effing firefox doesn't support .innerText property
+                if( span.textContent && span.textContent.indexOf('Select') !== -1 ){
+                    span.textContent = 'English';
                 }
                 trans.style.display = 'block';
             }, 250);

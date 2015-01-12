@@ -29,7 +29,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="inner border-purple">
                     <h5 class="marginless"><i class="fa fa-twitter"></i> &#64;<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?></h5>
-                    <a class="twitter-timeline" href="https://twitter.com/<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?>" data-widget-id="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_widget_id'); ?>" data-tweet-limit="1" data-link-color="#ffffff" data-chrome="noheader nofooter noborders noscrollbar transparent" height="auto" data-height="auto">
+                    <a class="twitter-timeline" href="https://twitter.com/<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?>" data-widget-id="<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_widget_id'); ?>" data-tweet-limit="1" data-theme="dark" data-link-color="#419644" data-chrome="noheader nofooter noborders noscrollbar transparent" height="auto" data-height="auto">
                         Tweets by &#64;<?php echo XeridiemPackage::getPackageConfigObj()->get('theme_twitter_feed_handle'); ?>
                     </a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

@@ -6,7 +6,11 @@
                 <div class="tabular">
                     <div class="cellular text-left">
                         <a class="logo" href="/">
-                            <img src="<?php echo XERIDIEM_IMAGE_PATH; ?>logos/full_white.png" />
+                            <?php
+                                $a = new GlobalArea('Header 1'); /* @var $a Area */
+                                XeridiemPackage::setAreaDefaultTemplates($a);
+                                $a->display($c);
+                            ?>
                         </a>
                     </div>
                 </div>
