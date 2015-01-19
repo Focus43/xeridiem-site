@@ -71,6 +71,7 @@
             if( $this->_resizedObj === null ){
                 $imageHelper = Loader::helper('image');
                 $this->_resizedObj = $imageHelper->getThumbnail($this->fileObject(), self::MAX_IMAGE_WIDTH, self::MAX_IMAGE_HEIGHT, true);
+                $this->_resizedImgObj->src = str_replace(BASE_URL,'', $this->_resizedImgObj->src);
             }
             return $this->_resizedObj;
         }
