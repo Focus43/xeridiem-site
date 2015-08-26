@@ -1,14 +1,14 @@
 @import '../../../../../css/src/required';
 @import '../../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid';
 
-.flexry-masthead {height:380px;width:100%;position:relative;
+.flexry-masthead {height:100%;min-height:500px;width:100%;position:relative;
   .node {visibility:hidden;opacity:0;width:100%;height:100%;position:absolute;top:0;left:0;color:#fff;background-size:cover;background-position:100% 100%;@include transition(all 0.5s ease);
     &.active{visibility:visible;opacity:1;}
-    .inner-1 {margin:0 auto;text-align:left;@extend .container;
-      .inner-2 {max-width:80%;display:inline-block;}
-      h2 {font-size:3rem;padding:2.6rem 0 2.6rem 3.4rem;background:transparent url('/packages/xeridiem/images/logos/symbol_white_opaque.png') no-repeat 0 50%;background-size:contain;text-transform:capitalize;}
-      p {max-width:380px;display:block;margin-left:3rem;padding:0.6rem;background:rgba(0,0,0,0.35);}
-      a.link-to {display:inline-block;color:#fff;padding:0.5rem 1rem;font-weight:bold;border:1px solid #fff;margin-left:3rem;text-transform:uppercase;}
+    .inner-1 {margin:0 auto;text-align:center;@extend .container;
+      .inner-2 {margin:0 auto;max-width:80%;display:inline-block;}
+      h2 {font-size:3rem;padding:1rem;text-transform:capitalize;}
+      p {max-width:100%;display:block;padding:0.6rem;background:rgba(0,0,0,0.35);}
+      a.link-to {display:inline-block;color:#fff;padding:0.5rem 1rem;font-weight:bold;border:1px solid #fff;text-transform:uppercase;}
     }
   }
 
@@ -20,5 +20,30 @@
 
   .markers {position:absolute;bottom:0;left:0;right:0;text-align:center;padding:1rem;z-index:2;
     a {color:#fff;display:inline-block;line-height:1;padding:5px 2px;}
+  }
+}
+
+@media screen and (min-width:$screen-sm){
+  .flexry-masthead {min-height:380px;
+    .node {
+      .inner-1 {text-align:left;
+        .inner-2 {margin:0}
+        h2 {padding:2.6rem 0 2.6rem 3.4rem;background:transparent url('/packages/xeridiem/images/logos/symbol_white_opaque.png') no-repeat 0 50%;background-size:contain;}
+        p {max-width:380px;margin-left:3rem;}
+        a.link-to {margin-left:3rem;}
+      }
+    }
+  }
+}
+
+@media (orientation:landscape) and (max-width:$screen-sm){
+  .flexry-masthead {min-height:320px;
+    .node {
+      .tabular .cellular {vertical-align:top;}
+      .inner-1 {text-align:center;
+        .inner-2 {margin:0 auto;}
+        p {max-width:100%;}
+      }
+    }
   }
 }
